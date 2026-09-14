@@ -13,10 +13,10 @@ export async function GET(req: NextRequest) {
     let emailResult: any = null;
 
     if (testEmailTarget) {
-      const host = process.env.SMTP_HOST || 'smtpout.secureserver.net';
+      const host = process.env.SMTP_HOST || '';
       const port = parseInt(process.env.SMTP_PORT || '465');
-      const user = process.env.SMTP_USER || 'info@prayxis.in';
-      const pass = process.env.SMTP_PASS || '@1234asdfG';
+      const user = process.env.SMTP_USER || '';
+      const pass = process.env.SMTP_PASS || '';
       const otp = Math.floor(100000 + Math.random() * 900000).toString();
 
       try {

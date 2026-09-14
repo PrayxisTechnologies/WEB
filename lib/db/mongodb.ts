@@ -7,12 +7,15 @@ try {
   // Ignore if not supported in environment
 }
 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://prayxistechnologies_db_user:1234asdfG@prayxis-web.w2cyjti.mongodb.net/prayxis_db?retryWrites=true&w=majority&appName=Prayxis-web';
+const MONGODB_URI = process.env.MONGODB_URI || '';
 
 let client: any = null;
 let clientPromise: Promise<any> | null = null;
 
 export async function getMongoDb() {
+  if (!MONGODB_URI) {
+    return null;
+  }
   try {
     try {
       dns.setServers(['8.8.8.8', '1.1.1.1', '8.8.4.4']);

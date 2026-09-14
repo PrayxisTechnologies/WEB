@@ -11,11 +11,11 @@ export interface SendOtpParams {
 }
 
 export async function sendOtpEmail({ to, otp, type, name }: SendOtpParams): Promise<{ success: boolean; messageId?: string; error?: string }> {
-  const host = process.env.SMTP_HOST || 'smtpout.secureserver.net';
+  const host = process.env.SMTP_HOST || '';
   const port = parseInt(process.env.SMTP_PORT || '465');
-  const user = process.env.SMTP_USER || 'info@prayxis.in';
-  const pass = process.env.SMTP_PASS || '@1234asdfG';
-  const from = process.env.EMAIL_FROM || 'info@prayxis.in';
+  const user = process.env.SMTP_USER || '';
+  const pass = process.env.SMTP_PASS || '';
+  const from = process.env.EMAIL_FROM || user;
 
   let subject = 'Prayxis Verification Code';
   let headerTitle = 'PRAYXIS SECURITY VERIFICATION';
