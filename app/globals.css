@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-inter: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-jetbrains: 'JetBrains Mono', monospace;
+    --cursor-dot-size: 6px;
+    --cursor-ring-size: 32px;
+    --cursor-ring-hover-size: 50px;
+  }
+
+  @media (pointer: fine) {
+    body.custom-cursor-active,
+    body.custom-cursor-active a,
+    body.custom-cursor-active button,
+    body.custom-cursor-active input,
+    body.custom-cursor-active textarea,
+    body.custom-cursor-active select,
+    body.custom-cursor-active [role="button"] {
+      cursor: none !important;
+    }
+  }
+
+  html {
+    background-color: #050507;
+    color: #F4F4F6;
+    font-family: var(--font-inter);
+    scroll-behavior: auto !important; /* Managed by Lenis */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: #050507;
+    color: #F4F4F6;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  ::selection {
+    background-color: rgba(0, 240, 255, 0.25);
+    color: #FFFFFF;
+  }
+}
+
+/* Typography Scale (Clamp-based) */
+.heading-hero {
+  font-size: clamp(40px, 5.5vw, 84px);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+
+.heading-section {
+  font-size: clamp(30px, 3.8vw, 58px);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+}
+
+.heading-sub {
+  font-size: clamp(20px, 2.2vw, 32px);
+  line-height: 1.2;
+}
+
+.body-large {
+  font-size: clamp(16px, 1.2vw, 19px);
+  line-height: 1.6;
+}
+
+.body-small {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.label-eyebrow {
+  font-family: var(--font-jetbrains);
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+/* Lenis Smooth Scroll Recommended Base Styles */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Continuous Right-to-Left Ticker Marquee */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Minimal Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050507;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 240, 255, 0.4);
+}
+
+/* Grid & Noise Overlay Utilities */
+.bg-tech-grid {
+  background-size: 48px 48px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.bg-tech-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Glow & Accent Helpers */
+.cyan-glow {
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.15);
+}
+
+.cyan-glow-subtle {
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.08);
+}
+
+/* Accessible outline focus */
+*:focus-visible {
+  outline: 2px solid #00F0FF;
+  outline-offset: 4px;
+}
+
+/* Hide default cursor when custom cursor active on pointer fine */
+@media (pointer: fine) {
+  body.custom-cursor-active {
+    cursor: none;
+  }
+  body.custom-cursor-active a,
+  body.custom-cursor-active button,
+  body.custom-cursor-active [role="button"] {
+    cursor: none;
+  }
+}
+
+/* 3D Transform Utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.style-3d {
+  transform-style: preserve-3d;
+}

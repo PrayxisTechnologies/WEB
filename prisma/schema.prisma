@@ -1,0 +1,180 @@
+// Prisma Database Schema for Prayxis Academy Learning System
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  STUDENT
+  ADMIN
+}
+
+enum EnrollmentStatus {
+  ENROLLED
+  COMPLETED
+  SUSPENDED
+}
+
+enum DayStatus {
+  LOCKED
+  AVAILABLE
+}
+
+enum ProgressStatus {
+  NOT_STARTED
+  IN_PROGRESS
+  COMPLETED
+}
+
+enum SessionStatus {
+  ACTIVE
+  ENDED
+}
+
+model User {
+  id            String             @id @default(uuid())
+  name          String
+  email         String             @unique
+  passwordHash  String
+  role          Role               @default(STUDENT)
+  createdAt     DateTime           @default(now())
+  updatedAt     DateTime           @updatedAt
+
+  enrollments   CourseEnrollment[]
+  dayProgress   DayProgress[]
+  lessonProgress LessonProgress[]
+  sessions      LearningSession[]
+  timeLogs      TimeLog[]
+
+  @@map("users")
+}
+
+model Course {
+  id            String             @id @default(uuid())
+  slug          String             @unique
+  title         String
+  description   String
+  durationDays  Int                @default(45)
+  totalHours    Int                @default(120)
+  status        String             @default("PROGRAM IN DEVELOPMENT")
+  createdAt     DateTime           @default(now())
+  updatedAt     DateTime           @updatedAt
+
+  days          CourseDay[]
+  enrollments   CourseEnrollment[]
+  timeLogs      TimeLog[]
+
+  @@map("courses")
+}
+
+model CourseEnrollment {
+  id          String           @id @default(uuid())
+  userId      String
+  courseId    String
+  enrolledAt  DateTime         @default(now())
+  status      EnrollmentStatus @default(ENROLLED)
+
+  user        User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  course      Course           @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, courseId])
+  @@map("course_enrollments")
+}
+
+model CourseDay {
+  id          String      @id @default(uuid())
+  courseId    String
+  dayNumber   Int
+  title       String
+  slug        String
+  description String
+  status      DayStatus   @default(LOCKED)
+  createdAt   DateTime    @default(now())
+
+  course      Course      @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  lessons     Lesson[]
+  dayProgress DayProgress[]
+
+  @@unique([courseId, dayNumber])
+  @@map("course_days")
+}
+
+model Lesson {
+  id          String           @id @default(uuid())
+  dayId       String
+  title       String
+  order       Int              @default(1)
+  status      String           @default("PREPARING")
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+
+  day         CourseDay        @relation(fields: [dayId], references: [id], onDelete: Cascade)
+  progress    LessonProgress[]
+
+  @@map("lessons")
+}
+
+model DayProgress {
+  id            String         @id @default(uuid())
+  userId        String
+  dayId         String
+  status        ProgressStatus @default(NOT_STARTED)
+  activeSeconds Int            @default(0)
+  startedAt     DateTime?
+  completedAt   DateTime?
+
+  user          User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  day           CourseDay      @relation(fields: [dayId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, dayId])
+  @@map("day_progress")
+}
+
+model LessonProgress {
+  id          String    @id @default(uuid())
+  userId      String
+  lessonId    String
+  completed   Boolean   @default(false)
+  startedAt   DateTime?
+  completedAt DateTime?
+
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lesson      Lesson    @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, lessonId])
+  @@map("lesson_progress")
+}
+
+model LearningSession {
+  id            String        @id @default(uuid())
+  userId        String
+  startTime     DateTime      @default(now())
+  endTime       DateTime?
+  lastActiveAt  DateTime      @default(now())
+  activeSeconds Int           @default(0)
+  status        SessionStatus @default(ACTIVE)
+
+  user          User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("learning_sessions")
+}
+
+model TimeLog {
+  id            String    @id @default(uuid())
+  userId        String
+  courseId      String
+  dayNumber     Int?
+  date          String    // YYYY-MM-DD format
+  activeSeconds Int       @default(0)
+  lastActiveAt  DateTime  @default(now())
+
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  course        Course    @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, courseId, date, dayNumber])
+  @@map("time_logs")
+}

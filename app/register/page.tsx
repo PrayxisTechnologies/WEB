@@ -1,0 +1,175 @@
+'use client';
+
+import React, { useState } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { User, Lock, Mail, Terminal, ArrowLeft, RefreshCw, ArrowRight } from 'lucide-react';
+
+export default function RegisterPage() {
+  const router = useRouter();
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+
+  const handleRegister = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError(null);
+    setLoading(true);
+
+    try {
+      const res = await fetch('/api/auth/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: name.trim(),
+          email: email.trim(),
+          password: password.trim(),
+        }),
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || 'Registration failed');
+      }
+
+      window.location.href = '/student';
+    } catch (err: any) {
+      setError(err.message || 'Failed to create student account');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="relative min-h-screen bg-[#07090e] text-slate-100 flex flex-col justify-between select-none">
+      {/* Minimal Top Header with Back to Site */}
+      <header className="w-full border-b border-white/10 bg-[#090b0f]/90 backdrop-blur-md px-6 py-4 sticky top-0 z-50">
+        <div className="max-w-6xl mx-auto flex items-center justify-between">
+          <Link href="/" className="flex items-center gap-3 text-decoration-none group">
+            <div className="w-9 h-9 rounded-full overflow-hidden border border-amber-400/80 shadow-[0_0_10px_rgba(245,158,11,0.3)]">
+              <img src="/assets/prayxis_logo.jpg" alt="PRAYXIS" className="w-full h-full object-cover" />
+            </div>
+            <div className="flex flex-col">
+              <span className="font-mono text-base font-black tracking-wider text-white">
+                PRAY<span className="text-amber-400">XIS</span>
+              </span>
+              <span className="text-[9.5px] uppercase font-bold text-amber-400/90 -mt-1 tracking-widest">Foundation</span>
+            </div>
+          </Link>
+
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-amber-500/10 border border-white/15 hover:border-amber-400/50 rounded-xl text-xs font-mono text-slate-300 hover:text-amber-300 transition-all cursor-pointer"
+          >
+            <ArrowLeft className="h-3.5 w-3.5" />
+            <span>Back to Site</span>
+          </Link>
+        </div>
+      </header>
+
+      {/* Main Registration Box */}
+      <main className="relative z-10 flex-1 flex items-center justify-center py-12 px-6">
+        <div className="w-full max-w-md p-8 sm:p-10 bg-[#0d1017]/95 border border-amber-500/30 hover:border-amber-500/50 rounded-3xl backdrop-blur-xl space-y-6 shadow-[0_0_50px_rgba(245,158,11,0.08)] transition-all">
+          <div className="space-y-2 text-center">
+            <div className="inline-flex items-center gap-2 font-mono text-[10px] text-amber-400 uppercase tracking-widest font-bold px-3 py-1 bg-amber-500/10 border border-amber-500/30 rounded-full">
+              <Terminal className="h-3.5 w-3.5" />
+              <span>PRAYXIS // STUDENT REGISTRATION</span>
+            </div>
+            <h1 className="font-mono text-2xl font-extrabold text-white uppercase tracking-tight">
+              CREATE STUDENT ACCOUNT
+            </h1>
+            <p className="text-xs text-slate-400 font-sans">
+              Join over 2,00,000+ engineers upskilling with Prayxis Foundation.
+            </p>
+          </div>
+
+          {error && (
+            <div className="p-3 bg-red-500/10 border border-red-500/40 rounded-xl text-xs text-red-400 text-center font-mono">
+              {error}
+            </div>
+          )}
+
+          <form onSubmit={handleRegister} autoComplete="on" className="space-y-4 font-mono text-xs">
+            <div className="space-y-1.5 text-left">
+              <label className="text-slate-400 uppercase text-[10px] font-bold">FULL NAME</label>
+              <div className="relative">
+                <User className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-500" />
+                <input
+                  type="text"
+                  required
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Enter your full name"
+                  className="w-full pl-11 pr-4 py-3 bg-[#080a11] border border-white/10 rounded-xl text-white placeholder-slate-600 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500/50 transition-all font-sans text-sm"
+                />
+              </div>
+            </div>
+
+            <div className="space-y-1.5 text-left">
+              <label className="text-slate-400 uppercase text-[10px] font-bold">EMAIL ADDRESS</label>
+              <div className="relative">
+                <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-500" />
+                <input
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="name@example.com"
+                  className="w-full pl-11 pr-4 py-3 bg-[#080a11] border border-white/10 rounded-xl text-white placeholder-slate-600 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500/50 transition-all font-sans text-sm"
+                />
+              </div>
+            </div>
+
+            <div className="space-y-1.5 text-left">
+              <label className="text-slate-400 uppercase text-[10px] font-bold">PASSWORD (MIN 6 CHARACTERS)</label>
+              <div className="relative">
+                <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-500" />
+                <input
+                  type="password"
+                  required
+                  minLength={6}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Create a secure password"
+                  className="w-full pl-11 pr-4 py-3 bg-[#080a11] border border-white/10 rounded-xl text-white placeholder-slate-600 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500/50 transition-all font-sans text-sm"
+                />
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full py-3.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-extrabold uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-amber-500/20 cursor-pointer disabled:opacity-50 mt-2"
+            >
+              {loading ? (
+                <>
+                  <RefreshCw className="h-4 w-4 animate-spin" />
+                  <span>CREATING ACCOUNT...</span>
+                </>
+              ) : (
+                <>
+                  <span>CREATE ACCOUNT & ENTER PORTAL →</span>
+                </>
+              )}
+            </button>
+          </form>
+
+          <div className="pt-4 border-t border-white/10 text-center text-xs text-slate-400 font-sans">
+            Already have an account?{' '}
+            <Link href="/login" className="text-amber-400 font-bold hover:underline">
+              Log In Here
+            </Link>
+          </div>
+        </div>
+      </main>
+
+      {/* Clean Minimal Footer Note */}
+      <footer className="py-6 text-center text-xs text-slate-500 font-mono border-t border-white/5">
+        © 2024–2026 PRAYXIS FOUNDATION. All Rights Reserved.
+      </footer>
+    </div>
+  );
+}
+
