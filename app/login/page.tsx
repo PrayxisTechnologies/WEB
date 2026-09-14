@@ -1,11 +1,13 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Lock, Mail, Terminal, ArrowLeft, RefreshCw } from 'lucide-react';
 
-export default function LoginPage() {
+export const dynamic = 'force-dynamic';
+
+function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const redirectUrl = searchParams.get('redirect');
@@ -154,5 +156,19 @@ export default function LoginPage() {
         © 2024–2026 PRAYXIS FOUNDATION. All Rights Reserved.
       </footer>
     </div>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-[#07090e] flex items-center justify-center font-mono text-xs text-amber-400">
+          <span>LOADING AUTHENTICATION CONSOLE...</span>
+        </div>
+      }
+    >
+      <LoginForm />
+    </Suspense>
   );
 }

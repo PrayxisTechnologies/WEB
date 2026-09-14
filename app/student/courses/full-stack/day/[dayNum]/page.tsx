@@ -16,6 +16,8 @@ import {
 } from '@/lib/utils/dayUnlock';
 import { getWhatsAppEnrollUrl } from '@/lib/whatsapp';
 
+export const dynamic = 'force-dynamic';
+
 export default function DayModulePage() {
   const router = useRouter();
   const params = useParams();
