@@ -434,11 +434,11 @@ export default function DedicatedAdminPage() {
                     </tr>
                   ) : (
                     studentUsers.map((u) => {
-                    const isMasterAdmin = u.role === 'ADMIN';
-                    const isPending = !u.isApproved;
-                    const enrollments = u.enrollments || [];
+                      const isMasterAdmin = u.role === 'ADMIN';
+                      const isPending = !u.isApproved;
+                      const enrollments = u.enrollments || [];
 
-                    return (
+                      return (
                       <tr key={u.id} className="hover:bg-white/5 transition-colors">
                         <td className="py-4 px-3 space-y-0.5">
                           <div className="font-bold text-prayxis-offwhite text-sm">{u.name}</div>
@@ -588,7 +588,7 @@ export default function DedicatedAdminPage() {
                         </td>
                       </tr>
                     );
-                  })}
+                  }))}
                 </tbody>
               </table>
             </div>
