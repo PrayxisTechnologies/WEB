@@ -38,6 +38,8 @@ interface UserProfile {
   createdAt?: string;
   lastActiveAt?: string;
   enrollments?: any[];
+  streak?: number;
+  [key: string]: any;
 }
 
 interface UserStats {
@@ -46,6 +48,8 @@ interface UserStats {
   completedDays?: number[];
   completedCount?: number;
   completionPercentage?: number;
+  streak?: number;
+  [key: string]: any;
 }
 
 export default function StudentProfilePage() {

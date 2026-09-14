@@ -52,7 +52,9 @@ interface AdminUserRecord {
     status: 'REQUESTED' | 'ENROLLED' | 'REJECTED';
     price?: number;
     offer?: string;
+    [key: string]: any;
   }>;
+  [key: string]: any;
 }
 
 interface AdminDailyLog {
@@ -71,6 +73,7 @@ interface AdminDailyLog {
   status: 'IN_PROGRESS' | 'COMPLETED';
   firstActiveAt: string;
   lastActiveAt: string;
+  [key: string]: any;
 }
 
 export default function DedicatedAdminPage() {

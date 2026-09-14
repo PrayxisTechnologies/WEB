@@ -40,6 +40,9 @@ interface StudentUser {
   role: string;
   isApproved: boolean;
   createdAt: string;
+  enrollments?: any[];
+  streak?: number;
+  [key: string]: any;
 }
 
 interface AdminUserRecord {
@@ -57,6 +60,9 @@ interface AdminUserRecord {
   completedDays?: number[];
   completedCount?: number;
   completionPercentage?: number;
+  streak?: number;
+  enrollments?: any[];
+  [key: string]: any;
 }
 
 export default function StudentDashboardPage() {
