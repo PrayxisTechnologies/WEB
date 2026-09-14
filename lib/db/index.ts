@@ -134,7 +134,7 @@ export const db = {
         const mongoDb = await getMongoDb();
         if (mongoDb) {
           const docs = await mongoDb.collection('users').find({}).toArray();
-          return docs.map((d) => cleanDoc<UserRecord>(d));
+          return docs.map((d: any) => cleanDoc<UserRecord>(d));
         }
       } catch (err) {
         console.error('[DB Error] users.getAll:', err);
@@ -275,7 +275,7 @@ export const db = {
         const mongoDb = await getMongoDb();
         if (mongoDb) {
           const docs = await mongoDb.collection('enrollments').find({}).toArray();
-          return docs.map((d) => cleanDoc<EnrollmentRecord>(d));
+          return docs.map((d: any) => cleanDoc<EnrollmentRecord>(d));
         }
       } catch (err) {
         console.error('[DB Error] enrollments.getAll:', err);
@@ -301,7 +301,7 @@ export const db = {
         const mongoDb = await getMongoDb();
         if (mongoDb) {
           const docs = await mongoDb.collection('enrollments').find({ userId }).toArray();
-          return docs.map((d) => cleanDoc<EnrollmentRecord>(d));
+          return docs.map((d: any) => cleanDoc<EnrollmentRecord>(d));
         }
       } catch (err) {
         console.error('[DB Error] enrollments.getUserEnrollments:', err);
@@ -603,7 +603,7 @@ export const db = {
         const mongoDb = await getMongoDb();
         if (mongoDb) {
           const docs = await mongoDb.collection('daily_logs').find({ userId }).sort({ date: -1 }).toArray();
-          return docs.map((d) => cleanDoc<DailyLogRecord>(d));
+          return docs.map((d: any) => cleanDoc<DailyLogRecord>(d));
         }
       } catch (err) {
         console.error('[DB Error] dailyLogs.getUserLogs:', err);
@@ -616,7 +616,7 @@ export const db = {
         const mongoDb = await getMongoDb();
         if (mongoDb) {
           const docs = await mongoDb.collection('daily_logs').find({}).sort({ date: -1, lastActiveAt: -1 }).toArray();
-          return docs.map((d) => cleanDoc<DailyLogRecord>(d));
+          return docs.map((d: any) => cleanDoc<DailyLogRecord>(d));
         }
       } catch (err) {
         console.error('[DB Error] dailyLogs.getAllLogs:', err);
@@ -630,7 +630,7 @@ export const db = {
         const mongoDb = await getMongoDb();
         if (mongoDb) {
           const docs = await mongoDb.collection('daily_logs').find({ date: targetDate }).sort({ activeSeconds: -1 }).toArray();
-          return docs.map((d) => cleanDoc<DailyLogRecord>(d));
+          return docs.map((d: any) => cleanDoc<DailyLogRecord>(d));
         }
       } catch (err) {
         console.error('[DB Error] dailyLogs.getByDate:', err);
@@ -651,7 +651,7 @@ export const db = {
 
           for (let i = 0; i < 30; i++) {
             const dateStr = checkDate.toISOString().split('T')[0];
-            const hasActivity = logs.some((l) => l.date === dateStr && l.activeSeconds > 0);
+            const hasActivity = logs.some((l: any) => l.date === dateStr && l.activeSeconds > 0);
             if (hasActivity) {
               streak++;
               checkDate.setDate(checkDate.getDate() - 1);
@@ -675,10 +675,10 @@ export const db = {
         const mongoDb = await getMongoDb();
         if (mongoDb) {
           const dayLogs = await mongoDb.collection('daily_logs').find({ date: targetDate }).toArray();
-          const totalActiveStudents = new Set(dayLogs.map((l) => l.userId)).size;
-          const targetMetCount = dayLogs.filter((l) => l.isTargetMet).length;
-          const inProgressCount = dayLogs.filter((l) => !l.isTargetMet && l.activeSeconds > 0).length;
-          const totalSecondsLogged = dayLogs.reduce((sum, l) => sum + (l.activeSeconds || 0), 0);
+          const totalActiveStudents = new Set(dayLogs.map((l: any) => l.userId)).size;
+          const targetMetCount = dayLogs.filter((l: any) => l.isTargetMet).length;
+          const inProgressCount = dayLogs.filter((l: any) => !l.isTargetMet && l.activeSeconds > 0).length;
+          const totalSecondsLogged = dayLogs.reduce((sum: number, l: any) => sum + (l.activeSeconds || 0), 0);
 
           return {
             date: targetDate,
@@ -754,7 +754,7 @@ export const db = {
         const mongoDb = await getMongoDb();
         if (mongoDb) {
           const docs = await mongoDb.collection('day_progress').find({ userId, courseSlug, status: 'COMPLETED' }).toArray();
-          return docs.map((d) => d.dayNumber);
+          return docs.map((d: any) => d.dayNumber);
         }
       } catch (err) {
         console.error('[DB Error] dayProgress.getCompletedDays:', err);
