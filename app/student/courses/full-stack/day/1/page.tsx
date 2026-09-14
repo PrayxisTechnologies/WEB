@@ -59,7 +59,7 @@ export default function Day01LessonPage() {
   // Practical Task State
   const [practicalCompleted, setPracticalCompleted] = useState(false);
 
-  const [user, setUser] = useState<{ isApproved: boolean; role: string } | null>(null);
+  const [user, setUser] = useState<any>(null);
 
   // Auto scroll to top when changing step
   useEffect(() => {

@@ -588,8 +588,9 @@ export default function DedicatedAdminPage() {
                         </td>
                       </tr>
                     );
-                  }))}
-                </tbody>
+                  })
+                )}
+              </tbody>
               </table>
             </div>
           </div>

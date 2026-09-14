@@ -71,7 +71,7 @@ export default function PythonDay01LessonPage() {
   const [activeDebugTab, setActiveDebugTab] = useState<number>(1);
   const [debugRevealed, setDebugRevealed] = useState<Record<number, boolean>>({});
 
-  const [user, setUser] = useState<{ isApproved: boolean; role: string } | null>(null);
+  const [user, setUser] = useState<any>(null);
 
   // Auto scroll to top when changing step
   useEffect(() => {

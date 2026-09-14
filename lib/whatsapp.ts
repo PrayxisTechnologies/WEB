@@ -4,9 +4,9 @@
  */
 
 export interface WhatsAppEnrollDetails {
-  userId: string;
-  userName: string;
-  userEmail: string;
+  userId?: string;
+  userName?: string;
+  userEmail?: string;
   courseTitle: string;
   price?: number;
   offer?: string;
