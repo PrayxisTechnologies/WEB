@@ -13,32 +13,10 @@ export const CustomCursor: React.FC<CustomCursorProps> = ({ variant = 'auto' }) 
   const containerRef = useRef<HTMLDivElement>(null);
   const dotRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  useEffect(() => {
-    // If user is on authenticated student or admin pages, cursor is BLUE/CYAN
-    const isAuthPage = pathname?.startsWith('/student') || pathname?.startsWith('/admin');
-    if (isAuthPage) {
-      setIsLoggedIn(true);
-      return;
-    }
-
-    if (variant === 'auto') {
-      fetch('/api/auth/me')
-        .then((res) => res.json())
-        .then((data) => {
-          if (data && data.user) {
-            setIsLoggedIn(true);
-          } else {
-            setIsLoggedIn(false);
-          }
-        })
-        .catch(() => setIsLoggedIn(false));
-    }
-  }, [variant, pathname]);
-
-  // Determine active cursor theme color: GOLD before login (landing), CYAN/BLUE after login (student/admin)
-  const isGoldTheme = variant === 'gold' || (variant === 'auto' && !isLoggedIn);
+  const isAuthPage = pathname?.startsWith('/student') || pathname?.startsWith('/admin');
+  const isGoldTheme =
+    variant === 'gold' ? true : variant === 'cyan' ? false : !isAuthPage;
   const themeColorHex = isGoldTheme ? '#FFD700' : '#00F0FF';
 
   useEffect(() => {
