@@ -20,12 +20,14 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://prayxis.in'),
   title: {
-    default: 'Prayxis Technologies — Software Engineering & Cybersecurity Internships',
-    template: '%s | Prayxis Technologies',
+    default: 'PRAYXIS Internship Portal — Industrial Software Engineering & Cybersecurity Internships',
+    template: '%s | PRAYXIS Internship Portal',
   },
   description:
-    'Prayxis Technologies (Prayxis) offers hands-on industrial software engineering, cybersecurity, ethical hacking, Python, and full-stack development virtual internships and training across India.',
+    'PRAYXIS Internship Portal by Prayxis Foundation provides hands-on industrial software engineering, cybersecurity, ethical hacking, Python, and full-stack development virtual internships across India.',
   keywords: [
+    'PRAYXIS Internship Portal',
+    'Prayxis Internship Portal',
     'Prayxis',
     'Prayxis Technologies',
     'Prayxis Foundation',
@@ -46,17 +48,17 @@ export const metadata: Metadata = {
     apple: '/logo.png',
   },
   openGraph: {
-    title: 'Prayxis Technologies — Software Engineering & Cybersecurity Internships',
+    title: 'PRAYXIS Internship Portal — Software Engineering & Cybersecurity Internships',
     description:
-      'Prayxis Technologies (Prayxis) offers hands-on industrial software engineering, cybersecurity, ethical hacking, and full-stack development virtual internships across India.',
+      'PRAYXIS Internship Portal offers hands-on industrial software engineering, cybersecurity, ethical hacking, and full-stack development virtual internships across India.',
     url: 'https://prayxis.in',
-    siteName: 'Prayxis Technologies',
+    siteName: 'PRAYXIS Internship Portal',
     images: [
       {
         url: 'https://prayxis.in/assets/prayxis_logo.png',
         width: 800,
         height: 800,
-        alt: 'Prayxis Technologies Official Logo',
+        alt: 'PRAYXIS Internship Portal Official Logo',
       },
     ],
     locale: 'en_US',
@@ -64,9 +66,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Prayxis Technologies — Software Engineering & Cybersecurity Internships',
+    title: 'PRAYXIS Internship Portal — Software Engineering & Cybersecurity Internships',
     description:
-      'Prayxis Technologies (Prayxis) offers hands-on industrial software engineering, cybersecurity, ethical hacking, and full-stack development virtual internships.',
+      'PRAYXIS Internship Portal offers hands-on industrial software engineering, cybersecurity, ethical hacking, and full-stack development virtual internships.',
     images: ['https://prayxis.in/assets/prayxis_logo.png'],
   },
   robots: {
@@ -100,12 +102,12 @@ const jsonLdGraph = {
       '@id': 'https://prayxis.in/#organization',
       name: 'Prayxis Technologies',
       legalName: 'Prayxis Technologies',
-      alternateName: ['Prayxis', 'prayxis', 'Prayxis Tech', 'Prayxis Foundation'],
+      alternateName: ['Prayxis', 'PRAYXIS Internship Portal', 'Prayxis Tech', 'Prayxis Foundation'],
       url: 'https://prayxis.in',
       logo: 'https://prayxis.in/assets/prayxis_logo.png',
       image: 'https://prayxis.in/assets/prayxis_logo.png',
       description:
-        'Prayxis Technologies provides hands-on industrial software engineering, cybersecurity, Python, and AI training and virtual internships across India.',
+        'PRAYXIS Internship Portal provides hands-on industrial software engineering, cybersecurity, Python, and AI training and virtual internships across India.',
       email: 'info@prayxis.in',
       sameAs: ['https://prayxis.in'],
     },
@@ -113,6 +115,7 @@ const jsonLdGraph = {
       '@type': 'EducationalOrganization',
       '@id': 'https://prayxis.in/#educational-organization',
       name: 'Prayxis Foundation',
+      alternateName: 'PRAYXIS Internship Portal',
       url: 'https://prayxis.in',
       logo: 'https://prayxis.in/assets/prayxis_logo.png',
       description:
@@ -125,7 +128,7 @@ const jsonLdGraph = {
       '@type': 'WebSite',
       '@id': 'https://prayxis.in/#website',
       url: 'https://prayxis.in',
-      name: 'Prayxis Technologies',
+      name: 'PRAYXIS Internship Portal',
       alternateName: 'Prayxis',
       publisher: {
         '@id': 'https://prayxis.in/#organization',
