@@ -1,73 +1,88 @@
-'use client';
+import { Metadata } from 'next';
+import CoursesClient from './CoursesClient';
 
-import React, { useEffect, useState } from 'react';
-import { ReactLenis } from 'lenis/react';
-import { gsap, ScrollTrigger } from '@/animations/gsap';
-import { Navbar } from '@/components/layout/Navbar';
-import { Footer } from '@/components/layout/Footer';
-import { CustomCursor } from '@/components/ui/CustomCursor';
+export const metadata: Metadata = {
+  title: 'Academy Programs & Technical Internships',
+  description:
+    'Explore industry-aligned software engineering, cybersecurity, ethical hacking, Python, and full-stack development internship programs at Prayxis Technologies.',
+  alternates: {
+    canonical: 'https://prayxis.in/courses',
+  },
+  openGraph: {
+    title: 'Academy Programs & Technical Internships | Prayxis Technologies',
+    description:
+      'Explore industry-aligned software engineering, cybersecurity, ethical hacking, Python, and full-stack development internship programs at Prayxis Technologies.',
+    url: 'https://prayxis.in/courses',
+  },
+};
 
-// Academy Hub Modular Sections
-import { AcademyHero } from '@/components/academy/AcademyHero';
-import { FeaturedCourse } from '@/components/academy/FeaturedCourse';
-import { LearningMethod } from '@/components/academy/LearningMethod';
-import { CurriculumPreview } from '@/components/academy/CurriculumPreview';
-import { AcademySpecs } from '@/components/academy/AcademySpecs';
-import { CourseGrid } from '@/components/academy/CourseGrid';
-import { AcademyCTA } from '@/components/academy/AcademyCTA';
+const coursesSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebPage',
+      '@id': 'https://prayxis.in/courses#webpage',
+      url: 'https://prayxis.in/courses',
+      name: 'Academy Programs & Technical Internships | Prayxis Technologies',
+      isPartOf: { '@id': 'https://prayxis.in/#website' },
+      description:
+        'Explore industry-aligned software engineering, cybersecurity, ethical hacking, Python, and full-stack development internship programs at Prayxis Technologies.',
+    },
+    {
+      '@type': 'BreadcrumbList',
+      '@id': 'https://prayxis.in/courses#breadcrumb',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: 'https://prayxis.in',
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Academy Internships',
+          item: 'https://prayxis.in/courses',
+        },
+      ],
+    },
+    {
+      '@type': 'ItemList',
+      '@id': 'https://prayxis.in/courses#course-list',
+      name: 'Prayxis Technical Internship Programs',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          url: 'https://prayxis.in/courses/full-stack',
+          name: 'Full Stack Web Development Master Internship',
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          url: 'https://prayxis.in/courses',
+          name: 'Basic Ethical Hacking & Cyber Defense',
+        },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          url: 'https://prayxis.in/courses',
+          name: 'Python Basics & DSA Zero-to-Hero',
+        },
+      ],
+    },
+  ],
+};
 
 export default function CoursesPage() {
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    setIsLoaded(true);
-
-    const updateLenis = (time: number) => {
-      ScrollTrigger.update();
-    };
-
-    gsap.ticker.add(updateLenis);
-    gsap.ticker.lagSmoothing(0);
-
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!prefersReducedMotion) {
-      ScrollTrigger.batch('.reveal-section', {
-        onEnter: (batch) => {
-          gsap.fromTo(
-            batch,
-            { opacity: 0, y: 30 },
-            { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out', stagger: 0.15 }
-          );
-        },
-        once: true,
-      });
-    }
-
-    return () => {
-      gsap.ticker.remove(updateLenis);
-    };
-  }, []);
-
   return (
-    <ReactLenis root options={{ lerp: 0.08, duration: 1.2, smoothWheel: true }}>
-      <div className="relative min-h-screen bg-prayxis-bg text-prayxis-offwhite selection:bg-prayxis-accent selection:text-black overflow-x-hidden">
-        {/* Header Navigation */}
-        <Navbar />
-
-        {/* Main Content Sections */}
-        <main className="relative z-10">
-          <AcademyHero />
-          <FeaturedCourse />
-          <LearningMethod />
-          <CurriculumPreview />
-          <AcademySpecs />
-          <CourseGrid />
-          <AcademyCTA />
-        </main>
-
-        {/* Footer */}
-        <Footer />
-      </div>
-    </ReactLenis>
+    <>
+      <script
+        id="courses-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(coursesSchema) }}
+      />
+      <CoursesClient />
+    </>
   );
 }

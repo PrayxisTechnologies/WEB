@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { COURSES_DATA, CourseProgram } from '@/data/courses';
 import { ArrowRight, Sparkles, Loader2, MessageCircle, AlertCircle } from 'lucide-react';
@@ -157,7 +158,13 @@ export const CourseGrid: React.FC = () => {
 
                   {/* Course Title */}
                   <h3 className="font-mono text-xl font-extrabold text-prayxis-offwhite uppercase group-hover:text-prayxis-accent transition-colors">
-                    {course.title}
+                    {course.id === 'full-stack' ? (
+                      <Link href="/courses/full-stack" className="hover:underline">
+                        {course.title}
+                      </Link>
+                    ) : (
+                      course.title
+                    )}
                   </h3>
 
                   {/* Course Description */}
@@ -191,15 +198,23 @@ export const CourseGrid: React.FC = () => {
                   {/* Pricing Display */}
                   <div className="flex items-baseline justify-between font-mono">
                     <div className="flex items-baseline gap-2.5">
-                      <span className="text-3xl font-extrabold text-prayxis-accent tracking-tight">
-                        ₹{course.discountPrice ?? 99}
-                      </span>
-                      <span className="text-sm font-semibold text-prayxis-subtle line-through opacity-70">
-                        ₹{course.originalPrice ?? 999}
-                      </span>
+                      {course.priceHidden ? (
+                        <span className="text-xl font-extrabold text-amber-400 tracking-tight">
+                          PRICE UPON REQUEST
+                        </span>
+                      ) : (
+                        <>
+                          <span className="text-3xl font-extrabold text-prayxis-accent tracking-tight">
+                            ₹{course.discountPrice}
+                          </span>
+                          <span className="text-sm font-semibold text-prayxis-subtle line-through opacity-70">
+                            ₹{course.originalPrice ?? 999}
+                          </span>
+                        </>
+                      )}
                     </div>
                     <span className="text-[10px] text-prayxis-muted uppercase tracking-wider">
-                      LIMITED TIME
+                      {course.priceHidden ? 'EXECUTIVE ACCESS' : 'LIMITED TIME'}
                     </span>
                   </div>
 

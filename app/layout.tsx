@@ -18,19 +18,23 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Prayxis Technologies | Official Site — Software & Cybersecurity',
+  metadataBase: new URL('https://prayxis.in'),
+  title: {
+    default: 'Prayxis Technologies — Software Engineering & Cybersecurity Internships',
+    template: '%s | Prayxis Technologies',
+  },
   description:
-    'Prayxis Technologies (Prayxis) is a leading innovator in digital products, cybersecurity solutions, software development, and hands-on industry training. Visit the official Prayxis website.',
+    'Prayxis Technologies (Prayxis) offers hands-on industrial software engineering, cybersecurity, ethical hacking, Python, and full-stack development virtual internships and training across India.',
   keywords: [
     'Prayxis',
     'Prayxis Technologies',
-    'prayxis',
-    'prayxis technologies',
-    'Cybersecurity',
-    'Software Engineering',
-    'EdTech',
-    'Tech Internships',
-    'Prayxis Official',
+    'Prayxis Foundation',
+    'Software Engineering Internship',
+    'Cybersecurity Internship',
+    'Ethical Hacking Training',
+    'Full Stack Web Development',
+    'Python Coding Bootcamp',
+    'AI and LLM Training',
   ],
   authors: [{ name: 'Prayxis Technologies' }],
   alternates: {
@@ -42,9 +46,9 @@ export const metadata: Metadata = {
     apple: '/logo.png',
   },
   openGraph: {
-    title: 'Prayxis Technologies | Official Site — Software & Cybersecurity',
+    title: 'Prayxis Technologies — Software Engineering & Cybersecurity Internships',
     description:
-      'Prayxis Technologies (Prayxis) is a leading innovator in digital products, cybersecurity solutions, software development, and hands-on industry training.',
+      'Prayxis Technologies (Prayxis) offers hands-on industrial software engineering, cybersecurity, ethical hacking, and full-stack development virtual internships across India.',
     url: 'https://prayxis.in',
     siteName: 'Prayxis Technologies',
     images: [
@@ -60,9 +64,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Prayxis Technologies | Official Site — Software & Cybersecurity',
+    title: 'Prayxis Technologies — Software Engineering & Cybersecurity Internships',
     description:
-      'Prayxis Technologies (Prayxis) is a leading innovator in digital products, cybersecurity solutions, software development, and hands-on industry training.',
+      'Prayxis Technologies (Prayxis) offers hands-on industrial software engineering, cybersecurity, ethical hacking, and full-stack development virtual internships.',
     images: ['https://prayxis.in/assets/prayxis_logo.png'],
   },
   robots: {
@@ -96,13 +100,26 @@ const jsonLdGraph = {
       '@id': 'https://prayxis.in/#organization',
       name: 'Prayxis Technologies',
       legalName: 'Prayxis Technologies',
-      alternateName: ['Prayxis', 'prayxis', 'Prayxis Tech', 'Prayxis Technologies'],
+      alternateName: ['Prayxis', 'prayxis', 'Prayxis Tech', 'Prayxis Foundation'],
       url: 'https://prayxis.in',
       logo: 'https://prayxis.in/assets/prayxis_logo.png',
       image: 'https://prayxis.in/assets/prayxis_logo.png',
       description:
-        'Prayxis Technologies (Prayxis) builds high-impact digital products, software solutions, cybersecurity platforms, and industry-grade training programs.',
+        'Prayxis Technologies provides hands-on industrial software engineering, cybersecurity, Python, and AI training and virtual internships across India.',
+      email: 'info@prayxis.in',
       sameAs: ['https://prayxis.in'],
+    },
+    {
+      '@type': 'EducationalOrganization',
+      '@id': 'https://prayxis.in/#educational-organization',
+      name: 'Prayxis Foundation',
+      url: 'https://prayxis.in',
+      logo: 'https://prayxis.in/assets/prayxis_logo.png',
+      description:
+        'National technical education initiative offering project-based virtual internships and verifiable digital certificates.',
+      parentOrganization: {
+        '@id': 'https://prayxis.in/#organization',
+      },
     },
     {
       '@type': 'WebSite',
@@ -114,14 +131,6 @@ const jsonLdGraph = {
         '@id': 'https://prayxis.in/#organization',
       },
       inLanguage: 'en-US',
-    },
-    {
-      '@type': 'EducationalOrganization',
-      '@id': 'https://prayxis.in/#edu',
-      name: 'Prayxis Technologies',
-      url: 'https://prayxis.in',
-      logo: 'https://prayxis.in/assets/prayxis_logo.png',
-      description: 'National industrial skill-development platform bridging university curriculum with production-grade engineering and cybersecurity.',
     },
   ],
 };

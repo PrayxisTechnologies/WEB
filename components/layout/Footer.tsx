@@ -4,14 +4,14 @@ import React from 'react';
 import Link from 'next/link';
 
 const FOOTER_NAV = [
-  { label: 'WORK', href: '#work' },
-  { label: 'SERVICES', href: '#services' },
-  { label: 'CYBER', href: '#cyber' },
-  { label: 'LABS', href: '#labs' },
-  { label: 'RESEARCH', href: '#insights' },
-  { label: 'ABOUT', href: '#about' },
-  { label: 'CAREERS', href: '#careers' },
-  { label: 'CONTACT', href: '#contact' },
+  { label: 'HOME', href: '/' },
+  { label: 'ACADEMY', href: '/courses' },
+  { label: 'FULL STACK TRACK', href: '/courses/full-stack' },
+  { label: 'REGISTER', href: '/register' },
+  { label: 'LOGIN', href: '/login' },
+  { label: 'ABOUT US', href: '/#about-us' },
+  { label: 'WHY JOIN', href: '/#why-join' },
+  { label: 'VERIFY', href: '/#verify' },
 ];
 
 const SOCIAL_LINKS = [

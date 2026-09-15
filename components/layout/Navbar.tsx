@@ -7,12 +7,11 @@ import { Menu, X, ArrowRight, User } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const NAV_LINKS = [
-  { label: 'Work', href: '/#work' },
-  { label: 'Services', href: '/#services' },
+  { label: 'Home', href: '/' },
   { label: 'Academy', href: '/courses' },
-  { label: 'Labs', href: '/#labs' },
-  { label: 'Insights', href: '/#insights' },
-  { label: 'About', href: '/#about' },
+  { label: 'Full Stack Track', href: '/courses/full-stack' },
+  { label: 'About Us', href: '/#about-us' },
+  { label: 'Verify Certificate', href: '/#verify' },
 ];
 
 export const Navbar: React.FC = () => {

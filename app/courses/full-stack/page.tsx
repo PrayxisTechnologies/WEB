@@ -1,77 +1,88 @@
-'use client';
+import { Metadata } from 'next';
+import FullStackClient from './FullStackClient';
 
-import React, { useEffect, useState } from 'react';
-import { ReactLenis } from 'lenis/react';
-import { gsap, ScrollTrigger } from '@/animations/gsap';
-import { Navbar } from '@/components/layout/Navbar';
-import { Footer } from '@/components/layout/Footer';
-import { CustomCursor } from '@/components/ui/CustomCursor';
+export const metadata: Metadata = {
+  title: 'Full Stack Web Development Master Internship',
+  description:
+    'Master production full-stack web development with React, Node.js, Express, MongoDB Atlas, and REST API architecture in a 45-day hands-on internship at Prayxis Technologies.',
+  alternates: {
+    canonical: 'https://prayxis.in/courses/full-stack',
+  },
+  openGraph: {
+    title: 'Full Stack Web Development Master Internship | Prayxis Technologies',
+    description:
+      'Master production full-stack web development with React, Node.js, Express, MongoDB Atlas, and REST API architecture in a 45-day hands-on internship.',
+    url: 'https://prayxis.in/courses/full-stack',
+  },
+};
 
-// Course Overview Modular Components
-import { CourseOverviewHero } from '@/components/academy/CourseOverviewHero';
-import { CourseSkills } from '@/components/academy/CourseSkills';
-import { CourseRoadmap } from '@/components/academy/CourseRoadmap';
-import { LearningCycle } from '@/components/academy/LearningCycle';
-import { CourseProjects } from '@/components/academy/CourseProjects';
-import { CapstoneSection } from '@/components/academy/CapstoneSection';
-import { CourseAudience } from '@/components/academy/CourseAudience';
-import { CourseOutcome } from '@/components/academy/CourseOutcome';
-import { CourseStartCTA } from '@/components/academy/CourseStartCTA';
+const fullStackSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebPage',
+      '@id': 'https://prayxis.in/courses/full-stack#webpage',
+      url: 'https://prayxis.in/courses/full-stack',
+      name: 'Full Stack Web Development Master Internship | Prayxis Technologies',
+      isPartOf: { '@id': 'https://prayxis.in/#website' },
+      description:
+        'Master production full-stack web development with React, Node.js, Express, MongoDB Atlas, and REST API architecture in a 45-day hands-on internship.',
+    },
+    {
+      '@type': 'BreadcrumbList',
+      '@id': 'https://prayxis.in/courses/full-stack#breadcrumb',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: 'https://prayxis.in',
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Academy Programs',
+          item: 'https://prayxis.in/courses',
+        },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: 'Full Stack Web Development',
+          item: 'https://prayxis.in/courses/full-stack',
+        },
+      ],
+    },
+    {
+      '@type': 'Course',
+      '@id': 'https://prayxis.in/courses/full-stack#course',
+      name: 'Full Stack Web Development Master Internship',
+      description:
+        '45-day production full-stack engineering program covering React, Node.js, Express, and MongoDB Atlas with production cloud deployment.',
+      provider: { '@id': 'https://prayxis.in/#educational-organization' },
+      offers: {
+        '@type': 'Offer',
+        price: '99',
+        priceCurrency: 'INR',
+        availability: 'https://schema.org/InStock',
+      },
+      hasCourseInstance: {
+        '@type': 'CourseInstance',
+        courseMode: 'Online',
+        duration: 'P45D',
+      },
+    },
+  ],
+};
 
 export default function FullStackCourseOverviewPage() {
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    setIsLoaded(true);
-
-    const updateLenis = (time: number) => {
-      ScrollTrigger.update();
-    };
-
-    gsap.ticker.add(updateLenis);
-    gsap.ticker.lagSmoothing(0);
-
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!prefersReducedMotion) {
-      ScrollTrigger.batch('.reveal-section', {
-        onEnter: (batch) => {
-          gsap.fromTo(
-            batch,
-            { opacity: 0, y: 30 },
-            { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out', stagger: 0.15 }
-          );
-        },
-        once: true,
-      });
-    }
-
-    return () => {
-      gsap.ticker.remove(updateLenis);
-    };
-  }, []);
-
   return (
-    <ReactLenis root options={{ lerp: 0.08, duration: 1.2, smoothWheel: true }}>
-      <div className="relative min-h-screen bg-prayxis-bg text-prayxis-offwhite selection:bg-prayxis-accent selection:text-black overflow-x-hidden">
-        {/* Header Navigation */}
-        <Navbar />
-
-        {/* Main Overview Content */}
-        <main className="relative z-10">
-          <CourseOverviewHero />
-          <CourseSkills />
-          <CourseRoadmap />
-          <LearningCycle />
-          <CourseProjects />
-          <CapstoneSection />
-          <CourseAudience />
-          <CourseOutcome />
-          <CourseStartCTA />
-        </main>
-
-        {/* Footer */}
-        <Footer />
-      </div>
-    </ReactLenis>
+    <>
+      <script
+        id="fullstack-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(fullStackSchema) }}
+      />
+      <FullStackClient />
+    </>
   );
 }
