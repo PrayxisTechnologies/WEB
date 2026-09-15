@@ -81,7 +81,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: 'google8c1e21e1aa7739e6',
+    google: 'mZPKo6H3gW1uPMjIgC5nk4BhXjMicx23c0VmoywUowA',
   },
 };
 
@@ -143,6 +143,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`dark ${inter.variable} ${jetbrainsMono.variable}`}>
       <head>
+        <meta name="google-site-verification" content="mZPKo6H3gW1uPMjIgC5nk4BhXjMicx23c0VmoywUowA" />
         <script
           id="json-ld-graph"
           type="application/ld+json"
