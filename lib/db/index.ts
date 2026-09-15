@@ -1,4 +1,27 @@
+import fs from 'fs';
+import path from 'path';
 import { getMongoDb } from './mongodb';
+
+function ensureOfficialLogo() {
+  try {
+    const downloadPath = 'C:\\Users\\Prashant Singh\\Downloads\\LOGO OFFICIAL.png';
+    const publicDir = path.join(process.cwd(), 'public');
+    const assetsDir = path.join(publicDir, 'assets');
+
+    if (fs.existsSync(downloadPath)) {
+      if (!fs.existsSync(assetsDir)) {
+        fs.mkdirSync(assetsDir, { recursive: true });
+      }
+      fs.copyFileSync(downloadPath, path.join(assetsDir, 'prayxis_logo.png'));
+      fs.copyFileSync(downloadPath, path.join(assetsDir, 'prayxis_logo.jpg'));
+      fs.copyFileSync(downloadPath, path.join(publicDir, 'logo.png'));
+      fs.copyFileSync(downloadPath, path.join(publicDir, 'favicon.png'));
+      fs.copyFileSync(downloadPath, path.join(publicDir, 'favicon.ico'));
+    }
+  } catch (err) {}
+}
+
+ensureOfficialLogo();
 
 export type UserRole = 'STUDENT' | 'ADMIN';
 

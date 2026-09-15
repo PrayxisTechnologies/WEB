@@ -317,21 +317,6 @@ export default function DedicatedAdminPage() {
           </div>
         </div>
 
-        {/* Diagnostic Database Banner */}
-        <div className="p-4 bg-black/60 border border-white/10 rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-mono text-xs">
-          <div className="space-y-1">
-            <div className="text-prayxis-accent font-bold uppercase flex items-center gap-2">
-              <Database className="h-4 w-4 text-prayxis-accent" />
-              <span>MONGODB ATLAS CLUSTER CONFIGURATION:</span>
-            </div>
-            <div className="text-prayxis-muted text-[11px]">
-              URI: <span className="text-prayxis-offwhite font-bold">mongodb+srv://prayxistechnologies_db_user:***@prayxis-web.w2cyjti.mongodb.net/prayxis_db</span>
-            </div>
-          </div>
-          <div className="px-3 py-1.5 bg-prayxis-accent/10 border border-prayxis-accent/40 rounded text-prayxis-accent font-bold text-[10px] uppercase self-start sm:self-auto">
-            STATUS: ACTIVE & SYNCED ⚡
-          </div>
-        </div>
 
         {/* Metric Overview Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 font-mono">

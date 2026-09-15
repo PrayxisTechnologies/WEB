@@ -208,7 +208,7 @@ export default function LandingPage() {
           <div className="nav-inner">
             <Link href="/" className="brand" title="Prayxis Home">
               <div className="brand-logo-wrap">
-                <img src="/assets/prayxis_logo.jpg" alt="PRAYXIS" className="brand-logo-img" />
+                <img src="/assets/prayxis_logo.jpg" alt="Prayxis Technologies Official Logo" className="brand-logo-img" />
               </div>
               <div className="brand-titles">
                 <div className="brand-name">
@@ -1211,7 +1211,7 @@ export default function LandingPage() {
             <div>
               <Link href="/" className="brand" style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
                 <div className="brand-logo-wrap" style={{ width: '40px', height: '40px' }}>
-                  <img src="/assets/prayxis_logo.jpg" alt="PRAYXIS" className="brand-logo-img" />
+                  <img src="/assets/prayxis_logo.jpg" alt="Prayxis Technologies Official Logo" className="brand-logo-img" />
                 </div>
                 <div className="brand-titles">
                   <div className="brand-name" style={{ fontSize: '20px' }}>PRAY<span>XIS</span></div>

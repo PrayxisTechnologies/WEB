@@ -77,10 +77,16 @@ export default function StudentDashboardPage() {
   const [allUsers, setAllUsers] = useState<AdminUserRecord[]>([]);
   const [adminLoading, setAdminLoading] = useState(false);
   const [actionLoadingId, setActionLoadingId] = useState<string | null>(null);
+  const [refreshing, setRefreshing] = useState(false);
+  const [statusToast, setStatusToast] = useState<{ message: string; type: 'success' | 'info' | 'error' } | null>(null);
 
-  const fetchUserData = async () => {
+  const fetchUserData = async (isManual: boolean = false) => {
     try {
-      const res = await fetch('/api/auth/me');
+      if (isManual) setRefreshing(true);
+      const res = await fetch(`/api/auth/me?t=${Date.now()}`, {
+        cache: 'no-store',
+        headers: { 'Cache-Control': 'no-cache' },
+      });
       if (res.ok) {
         const data = await res.json();
         setUser(data.user);
@@ -93,13 +99,36 @@ export default function StudentDashboardPage() {
         if (data.user?.role === 'ADMIN') {
           fetchAdminUserList();
         }
+
+        if (isManual) {
+          if (data.user?.isApproved || data.user?.role === 'ADMIN') {
+            setStatusToast({
+              message: '🎉 Congratulations! Your account & course are APPROVED & UNLOCKED!',
+              type: 'success',
+            });
+          } else {
+            setStatusToast({
+              message: '⏳ Status checked: Your request is currently PENDING approval by Admin.',
+              type: 'info',
+            });
+          }
+          setTimeout(() => setStatusToast(null), 4500);
+        }
       } else {
         setUser(null);
       }
     } catch (err) {
+      if (isManual) {
+        setStatusToast({
+          message: '❌ Failed to refresh status. Please try again.',
+          type: 'error',
+        });
+        setTimeout(() => setStatusToast(null), 4000);
+      }
       setUser(null);
     } finally {
       setLoading(false);
+      if (isManual) setRefreshing(false);
     }
   };
 
@@ -599,11 +628,12 @@ export default function StudentDashboardPage() {
               </button>
               <button
                 type="button"
-                onClick={fetchUserData}
-                className="px-4 py-2.5 bg-yellow-500 text-black font-bold uppercase rounded hover:bg-white transition-all cursor-pointer flex items-center gap-1.5"
+                onClick={() => fetchUserData(true)}
+                disabled={refreshing}
+                className="px-4 py-2.5 bg-yellow-500 text-black font-bold uppercase rounded hover:bg-white transition-all cursor-pointer flex items-center gap-1.5 disabled:opacity-50"
               >
-                <RefreshCw className="h-3.5 w-3.5" />
-                <span>CHECK STATUS</span>
+                <RefreshCw className={`h-3.5 w-3.5 ${refreshing ? 'animate-spin' : ''}`} />
+                <span>{refreshing ? 'CHECKING STATUS...' : 'CHECK STATUS'}</span>
               </button>
             </div>
           </div>
@@ -731,11 +761,12 @@ export default function StudentDashboardPage() {
 
                   <button
                     type="button"
-                    onClick={fetchUserData}
-                    className="w-full py-3 bg-yellow-500 text-black font-bold font-mono text-xs uppercase tracking-wider rounded text-center hover:bg-white transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                    onClick={() => fetchUserData(true)}
+                    disabled={refreshing}
+                    className="w-full py-3 bg-yellow-500 text-black font-bold font-mono text-xs uppercase tracking-wider rounded text-center hover:bg-white transition-colors flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                   >
-                    <RefreshCw className="h-3.5 w-3.5" />
-                    <span>CHECK APPROVAL STATUS</span>
+                    <RefreshCw className={`h-3.5 w-3.5 ${refreshing ? 'animate-spin' : ''}`} />
+                    <span>{refreshing ? 'CHECKING APPROVAL STATUS...' : 'CHECK APPROVAL STATUS'}</span>
                   </button>
                 </>
               )}
@@ -749,58 +780,48 @@ export default function StudentDashboardPage() {
             const isPythonRequested = Boolean(pythonEnr && (pythonEnr.status === 'REQUESTED' || !user?.isApproved));
 
             return (
-              <div 
-                className={`p-8 bg-prayxis-surface/90 border rounded-2xl backdrop-blur-md grid grid-cols-1 lg:grid-cols-12 gap-8 items-center cyan-glow-subtle transition-all group ${
-                  isPythonEnrolled
-                    ? 'border-prayxis-accent/50 cursor-pointer hover:border-prayxis-accent'
-                    : 'border-white/10 hover:border-prayxis-accent/30'
-                }`}
-                onClick={() => {
-                  if (isPythonEnrolled) {
-                    router.push('/student/courses/python-basics');
-                  } else {
-                    router.push('/student/profile');
-                  }
-                }}
+              <div
+                onClick={() => router.push('/student/courses/python-basics')}
+                className="p-6 sm:p-8 bg-prayxis-surface/90 border border-white/10 hover:border-prayxis-accent/40 rounded-2xl backdrop-blur-md grid grid-cols-1 lg:grid-cols-12 gap-6 items-center shadow-xl transition-all cursor-pointer group"
               >
+                {/* Course Details */}
                 <div className="lg:col-span-8 space-y-4">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-prayxis-accent/10 border border-prayxis-accent/40 rounded-full font-mono text-[10px] text-prayxis-accent tracking-wider uppercase">
-                    <span>PROG-03</span>
-                    <span>//</span>
-                    <span>30 DAYS</span>
-                    <span>//</span>
-                    <span>GANESH CHATURTHI OFFER: ₹99</span>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <span className="font-mono text-xs text-prayxis-accent font-bold px-3 py-1 bg-prayxis-accent/10 rounded-full border border-prayxis-accent/30 uppercase">
+                      PYTHON SPECIALIZATION // 45 DAYS // GANESH CHATURTHI OFFER: ₹99
+                    </span>
                   </div>
 
-                  <h2 className="font-mono text-2xl font-extrabold text-prayxis-offwhite uppercase group-hover:text-prayxis-accent transition-colors">
-                    PYTHON BASICS (BILKUL ZERO SE)
-                  </h2>
+                  <div>
+                    <h2 className="text-xl sm:text-2xl font-mono font-black text-prayxis-offwhite uppercase tracking-tight group-hover:text-prayxis-accent transition-colors flex items-center gap-2">
+                      <span>PYTHON BASICS: ZERO SE MASTERY</span>
+                      <ArrowRight className="h-5 w-5 text-prayxis-accent opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </h2>
+                    <p className="text-xs sm:text-sm text-prayxis-muted font-normal mt-1 leading-relaxed">
+                      Zero se advance tak Complete Python Roadmap. Real-time active learning timer compliance ke saath daily hands-on modules.
+                    </p>
+                  </div>
 
-                  <p className="body-small text-prayxis-muted leading-relaxed">
-                    Master Python fundamentals from absolute scratch: syntax, data structures, functions, OOP logic, and automation scripts.
-                  </p>
-
-                  {/* Progress & Target Stats */}
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 font-mono text-xs pt-2">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 font-mono text-xs">
                     <div className="p-3 bg-white/5 border border-white/10 rounded">
-                      <div className="text-prayxis-subtle text-[10px]">DURATION</div>
-                      <div className="text-prayxis-offwhite font-bold mt-1">30 DAYS</div>
+                      <div className="text-prayxis-muted text-[10px]">PROGRESS</div>
+                      <div className="text-prayxis-accent font-bold mt-1">0%</div>
                     </div>
 
-                    <div className="p-3 bg-white/5 border border-prayxis-accent/60 rounded">
-                      <div className="text-prayxis-accent text-[10px]">CURRENT LESSON</div>
+                    <div className="p-3 bg-white/5 border border-white/10 rounded">
+                      <div className="text-prayxis-muted text-[10px]">CURRENT MODULE</div>
                       <div className="text-prayxis-offwhite font-bold mt-1">DAY 01</div>
                     </div>
 
-                    <div className="p-3 bg-white/5 border border-prayxis-accent/60 rounded">
-                      <div className="text-prayxis-accent text-[10px]">DAILY TARGET</div>
-                      <div className="text-prayxis-offwhite font-bold mt-1">3 HOURS</div>
+                    <div className="p-3 bg-white/5 border border-white/10 rounded">
+                      <div className="text-prayxis-muted text-[10px]">TOTAL LEARNING</div>
+                      <div className="text-prayxis-offwhite font-bold mt-1">0H 0M</div>
                     </div>
 
                     <div className="p-3 bg-white/5 border border-prayxis-accent/60 rounded">
-                      <div className="text-prayxis-accent text-[10px]">STATUS</div>
+                      <div className="text-prayxis-accent text-[10px]">APPROVAL STATUS</div>
                       <div className="text-prayxis-accent font-bold mt-1">
-                        {isPythonEnrolled ? 'UNLOCKED / ACTIVE' : isPythonRequested ? 'PENDING APPROVAL' : 'OFFER ACTIVE ₹99'}
+                        {isPythonEnrolled ? 'UNLOCKED / ACTIVE' : isPythonRequested ? 'PENDING APPROVAL' : 'NOT ENROLLED'}
                       </div>
                     </div>
                   </div>
@@ -815,7 +836,7 @@ export default function StudentDashboardPage() {
                         className="w-full py-3.5 bg-prayxis-accent text-black font-bold font-mono text-xs uppercase tracking-wider rounded text-center hover:bg-white transition-colors flex items-center justify-center gap-2 cyan-glow cursor-pointer"
                       >
                         <Play className="h-4 w-4 fill-black" />
-                        <span>START DAY 01 LESSON →</span>
+                        <span>START PYTHON DAY 01 →</span>
                       </Link>
 
                       <Link
@@ -849,11 +870,12 @@ export default function StudentDashboardPage() {
 
                       <button
                         type="button"
-                        onClick={fetchUserData}
-                        className="w-full py-3 bg-yellow-500 text-black font-bold font-mono text-xs uppercase tracking-wider rounded text-center hover:bg-white transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                        onClick={() => fetchUserData(true)}
+                        disabled={refreshing}
+                        className="w-full py-3 bg-yellow-500 text-black font-bold font-mono text-xs uppercase tracking-wider rounded text-center hover:bg-white transition-colors flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                       >
-                        <RefreshCw className="h-3.5 w-3.5" />
-                        <span>CHECK APPROVAL STATUS</span>
+                        <RefreshCw className={`h-3.5 w-3.5 ${refreshing ? 'animate-spin' : ''}`} />
+                        <span>{refreshing ? 'CHECKING APPROVAL STATUS...' : 'CHECK APPROVAL STATUS'}</span>
                       </button>
                     </>
                   ) : (
@@ -870,6 +892,21 @@ export default function StudentDashboardPage() {
             );
           })()}
         </div>
+
+        {/* Floating Toast Notification */}
+        {statusToast && (
+          <div
+            className={`fixed bottom-8 left-1/2 -translate-x-1/2 px-6 py-3.5 rounded-xl border font-mono text-xs font-bold shadow-2xl z-50 flex items-center gap-2.5 backdrop-blur-xl animate-bounce ${
+              statusToast.type === 'success'
+                ? 'bg-emerald-950/95 border-emerald-500 text-emerald-300'
+                : statusToast.type === 'error'
+                ? 'bg-red-950/95 border-red-500 text-red-300'
+                : 'bg-yellow-950/95 border-yellow-500 text-yellow-300'
+            }`}
+          >
+            <span>{statusToast.message}</span>
+          </div>
+        )}
 
       </main>
 
