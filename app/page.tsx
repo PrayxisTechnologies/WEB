@@ -1125,7 +1125,7 @@ export default function LandingPage() {
                         setCertQuery(e.target.value);
                         setCertError(null);
                       }}
-                      placeholder="Enter Certificate ID (e.g. PRX-CS-2026-0001)"
+                      placeholder="Enter Certificate ID"
                       onKeyDown={(e) => e.key === 'Enter' && handleVerify()}
                     />
                     <button type="button" className="btn btn-primary" onClick={() => handleVerify()}>
@@ -1138,22 +1138,6 @@ export default function LandingPage() {
                       <span>⚠️</span> {certError}
                     </div>
                   )}
-
-                  <div className="sample-ids">
-                    <span>Sample IDs:</span>
-                    {['PRX-CS-2026-0001', 'PRX-2024-8849', 'PRX-2024-1022'].map((id) => (
-                      <span
-                        key={id}
-                        className="sample-chip"
-                        onClick={() => {
-                          setCertQuery(id);
-                          handleVerify(id);
-                        }}
-                      >
-                        {id}
-                      </span>
-                    ))}
-                  </div>
                 </div>
               </div>
             </div>
