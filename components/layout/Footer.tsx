@@ -5,13 +5,15 @@ import Link from 'next/link';
 
 const FOOTER_NAV = [
   { label: 'HOME', href: '/' },
+  { label: 'INTERNSHIPS', href: '/internship' },
   { label: 'ACADEMY', href: '/courses' },
   { label: 'FULL STACK TRACK', href: '/courses/full-stack' },
+  { label: 'PYTHON TRACK', href: '/courses/python' },
+  { label: 'CYBER SECURITY', href: '/courses/cyber-security' },
+  { label: 'RESOURCES HUB', href: '/resources' },
   { label: 'REGISTER', href: '/register' },
   { label: 'LOGIN', href: '/login' },
-  { label: 'ABOUT US', href: '/#about-us' },
-  { label: 'WHY JOIN', href: '/#why-join' },
-  { label: 'VERIFY', href: '/#verify' },
+  { label: 'VERIFY CERTIFICATE', href: '/#verify' },
 ];
 
 const SOCIAL_LINKS = [

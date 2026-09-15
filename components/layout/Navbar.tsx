@@ -10,8 +10,8 @@ const NAV_LINKS = [
   { label: 'Home', href: '/' },
   { label: 'Internships', href: '/internship' },
   { label: 'Academy', href: '/courses' },
-  { label: 'Full Stack Track', href: '/courses/full-stack' },
-  { label: 'About Us', href: '/#about-us' },
+  { label: 'Full Stack', href: '/courses/full-stack' },
+  { label: 'Resources', href: '/resources' },
   { label: 'Verify Certificate', href: '/#verify' },
 ];
 

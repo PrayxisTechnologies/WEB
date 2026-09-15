@@ -162,6 +162,14 @@ export const CourseGrid: React.FC = () => {
                       <Link href="/courses/full-stack" className="hover:underline">
                         {course.title}
                       </Link>
+                    ) : course.id === 'python-basics' ? (
+                      <Link href="/courses/python" className="hover:underline">
+                        {course.title}
+                      </Link>
+                    ) : course.id === 'basic-ethical-hacking' ? (
+                      <Link href="/courses/cyber-security" className="hover:underline">
+                        {course.title}
+                      </Link>
                     ) : (
                       course.title
                     )}
