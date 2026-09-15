@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/admin/', '/api/', '/student/'],
     },
-    sitemap: 'https://prayxis.com/sitemap.xml',
+    sitemap: 'https://prayxis.in/sitemap.xml',
   };
 }

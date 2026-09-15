@@ -208,7 +208,7 @@ export default function LandingPage() {
           <div className="nav-inner">
             <Link href="/" className="brand" title="Prayxis Home">
               <div className="brand-logo-wrap">
-                <img src="/assets/prayxis_logo.jpg" alt="Prayxis Technologies Official Logo" className="brand-logo-img" />
+                <img src="/assets/prayxis_logo.png?v=official" alt="Prayxis Technologies Official Logo" className="brand-logo-img" />
               </div>
               <div className="brand-titles">
                 <div className="brand-name">
@@ -554,7 +554,7 @@ export default function LandingPage() {
                     <div className="poster-content-layer">
                       <div className="poster-top-bar">
                         <div className="poster-brand">
-                          <img src="/assets/prayxis_logo.jpg" alt="Logo" className="poster-logo-img" />
+                          <img src="/assets/prayxis_logo.png?v=official" alt="Logo" className="poster-logo-img" />
                           <span className="poster-brand-text">PRAYXIS FOUNDATION</span>
                         </div>
                         <span className="poster-duration-badge">⏳ 15 Days</span>
@@ -602,7 +602,7 @@ export default function LandingPage() {
                     <div className="poster-content-layer">
                       <div className="poster-top-bar">
                         <div className="poster-brand">
-                          <img src="/assets/prayxis_logo.jpg" alt="Logo" className="poster-logo-img" />
+                          <img src="/assets/prayxis_logo.png?v=official" alt="Logo" className="poster-logo-img" />
                           <span className="poster-brand-text">PRAYXIS FOUNDATION</span>
                         </div>
                         <span className="poster-duration-badge">⏳ 15 Days</span>
@@ -650,7 +650,7 @@ export default function LandingPage() {
                     <div className="poster-content-layer">
                       <div className="poster-top-bar">
                         <div className="poster-brand">
-                          <img src="/assets/prayxis_logo.jpg" alt="Logo" className="poster-logo-img" />
+                          <img src="/assets/prayxis_logo.png?v=official" alt="Logo" className="poster-logo-img" />
                           <span className="poster-brand-text">PRAYXIS FOUNDATION</span>
                         </div>
                         <span className="poster-duration-badge">⏳ 15 Days</span>
@@ -698,7 +698,7 @@ export default function LandingPage() {
                     <div className="poster-content-layer">
                       <div className="poster-top-bar">
                         <div className="poster-brand">
-                          <img src="/assets/prayxis_logo.jpg" alt="Logo" className="poster-logo-img" />
+                          <img src="/assets/prayxis_logo.png?v=official" alt="Logo" className="poster-logo-img" />
                           <span className="poster-brand-text">PRAYXIS FOUNDATION</span>
                         </div>
                         <span className="poster-duration-badge">⏳ 15 Days</span>
@@ -756,7 +756,7 @@ export default function LandingPage() {
                     <div className="poster-content-layer">
                       <div className="poster-top-bar">
                         <div className="poster-brand">
-                          <img src="/assets/prayxis_logo.jpg" alt="Logo" className="poster-logo-img" />
+                          <img src="/assets/prayxis_logo.png?v=official" alt="Logo" className="poster-logo-img" />
                           <span className="poster-brand-text">PRAYXIS FOUNDATION</span>
                         </div>
                         <span className="poster-duration-badge">⏳ 45 Days</span>
@@ -803,7 +803,7 @@ export default function LandingPage() {
                     <div className="poster-content-layer">
                       <div className="poster-top-bar">
                         <div className="poster-brand">
-                          <img src="/assets/prayxis_logo.jpg" alt="Logo" className="poster-logo-img" />
+                          <img src="/assets/prayxis_logo.png?v=official" alt="Logo" className="poster-logo-img" />
                           <span className="poster-brand-text">PRAYXIS FOUNDATION</span>
                         </div>
                         <span className="poster-duration-badge">⏳ 45 Days</span>
@@ -850,7 +850,7 @@ export default function LandingPage() {
                     <div className="poster-content-layer">
                       <div className="poster-top-bar">
                         <div className="poster-brand">
-                          <img src="/assets/prayxis_logo.jpg" alt="Logo" className="poster-logo-img" />
+                          <img src="/assets/prayxis_logo.png?v=official" alt="Logo" className="poster-logo-img" />
                           <span className="poster-brand-text">PRAYXIS FOUNDATION</span>
                         </div>
                         <span className="poster-duration-badge">⏳ 45 Days</span>
@@ -897,7 +897,7 @@ export default function LandingPage() {
                     <div className="poster-content-layer">
                       <div className="poster-top-bar">
                         <div className="poster-brand">
-                          <img src="/assets/prayxis_logo.jpg" alt="Logo" className="poster-logo-img" />
+                          <img src="/assets/prayxis_logo.png?v=official" alt="Logo" className="poster-logo-img" />
                           <span className="poster-brand-text">PRAYXIS FOUNDATION</span>
                         </div>
                         <span className="poster-duration-badge">⏳ 45 Days</span>
@@ -1211,7 +1211,7 @@ export default function LandingPage() {
             <div>
               <Link href="/" className="brand" style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
                 <div className="brand-logo-wrap" style={{ width: '40px', height: '40px' }}>
-                  <img src="/assets/prayxis_logo.jpg" alt="Prayxis Technologies Official Logo" className="brand-logo-img" />
+                  <img src="/assets/prayxis_logo.png?v=official" alt="Prayxis Technologies Official Logo" className="brand-logo-img" />
                 </div>
                 <div className="brand-titles">
                   <div className="brand-name" style={{ fontSize: '20px' }}>PRAY<span>XIS</span></div>

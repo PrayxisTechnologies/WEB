@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Prayxis Technologies' }],
   alternates: {
-    canonical: 'https://prayxis.com',
+    canonical: 'https://prayxis.in',
   },
   icons: {
     icon: '/favicon.ico',
@@ -45,11 +45,11 @@ export const metadata: Metadata = {
     title: 'Prayxis Technologies | Official Site — Software & Cybersecurity',
     description:
       'Prayxis Technologies (Prayxis) is a leading innovator in digital products, cybersecurity solutions, software development, and hands-on industry training.',
-    url: 'https://prayxis.com',
+    url: 'https://prayxis.in',
     siteName: 'Prayxis Technologies',
     images: [
       {
-        url: 'https://prayxis.com/assets/prayxis_logo.png',
+        url: 'https://prayxis.in/assets/prayxis_logo.png',
         width: 800,
         height: 800,
         alt: 'Prayxis Technologies Official Logo',
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     title: 'Prayxis Technologies | Official Site — Software & Cybersecurity',
     description:
       'Prayxis Technologies (Prayxis) is a leading innovator in digital products, cybersecurity solutions, software development, and hands-on industry training.',
-    images: ['https://prayxis.com/assets/prayxis_logo.png'],
+    images: ['https://prayxis.in/assets/prayxis_logo.png'],
   },
   robots: {
     index: true,
@@ -75,6 +75,9 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
+  },
+  verification: {
+    google: 'google8c1e21e1aa7739e6',
   },
 };
 
@@ -90,34 +93,34 @@ const jsonLdGraph = {
   '@graph': [
     {
       '@type': 'Organization',
-      '@id': 'https://prayxis.com/#organization',
+      '@id': 'https://prayxis.in/#organization',
       name: 'Prayxis Technologies',
       legalName: 'Prayxis Technologies',
       alternateName: ['Prayxis', 'prayxis', 'Prayxis Tech', 'Prayxis Technologies'],
-      url: 'https://prayxis.com',
-      logo: 'https://prayxis.com/assets/prayxis_logo.png',
-      image: 'https://prayxis.com/assets/prayxis_logo.png',
+      url: 'https://prayxis.in',
+      logo: 'https://prayxis.in/assets/prayxis_logo.png',
+      image: 'https://prayxis.in/assets/prayxis_logo.png',
       description:
         'Prayxis Technologies (Prayxis) builds high-impact digital products, software solutions, cybersecurity platforms, and industry-grade training programs.',
-      sameAs: ['https://prayxis.com'],
+      sameAs: ['https://prayxis.in'],
     },
     {
       '@type': 'WebSite',
-      '@id': 'https://prayxis.com/#website',
-      url: 'https://prayxis.com',
+      '@id': 'https://prayxis.in/#website',
+      url: 'https://prayxis.in',
       name: 'Prayxis Technologies',
       alternateName: 'Prayxis',
       publisher: {
-        '@id': 'https://prayxis.com/#organization',
+        '@id': 'https://prayxis.in/#organization',
       },
       inLanguage: 'en-US',
     },
     {
       '@type': 'EducationalOrganization',
-      '@id': 'https://prayxis.com/#edu',
+      '@id': 'https://prayxis.in/#edu',
       name: 'Prayxis Technologies',
-      url: 'https://prayxis.com',
-      logo: 'https://prayxis.com/assets/prayxis_logo.png',
+      url: 'https://prayxis.in',
+      logo: 'https://prayxis.in/assets/prayxis_logo.png',
       description: 'National industrial skill-development platform bridging university curriculum with production-grade engineering and cybersecurity.',
     },
   ],

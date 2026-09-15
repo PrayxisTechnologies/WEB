@@ -49,7 +49,7 @@ export default function RegisterPage() {
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 text-decoration-none group">
             <div className="w-9 h-9 rounded-full overflow-hidden border border-amber-400/80 shadow-[0_0_10px_rgba(245,158,11,0.3)]">
-              <img src="/assets/prayxis_logo.jpg" alt="PRAYXIS" className="w-full h-full object-cover" />
+              <img src="/assets/prayxis_logo.png?v=official" alt="Prayxis Technologies Official Logo" className="w-full h-full object-cover" />
             </div>
             <div className="flex flex-col">
               <span className="font-mono text-base font-black tracking-wider text-white">
