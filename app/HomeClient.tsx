@@ -269,9 +269,9 @@ export default function HomeClient() {
               </p>
 
               <div className="hero-clean-meta">
-                <span className="meta-item">⚡ Trained 2,00,000+ Interns</span>
-                <span className="meta-item">🚀 Beginner to Advanced Tracks</span>
-                <span className="meta-item">🎓 Verifiable Digital Certificate</span>
+                <span className="meta-item">Trained 2,00,000+ Interns</span>
+                <span className="meta-item">Beginner to Advanced Tracks</span>
+                <span className="meta-item">Verifiable Digital Certificate</span>
               </div>
 
               <div className="hero-cta-suite">
