@@ -204,30 +204,42 @@ export default function HomeClient() {
         </div>
       </aside>
 
-      {/* HEADER NAVBAR */}
+      {/* Main Navigation */}
       <header className="site-header relative z-10">
         <div className="container">
-          <div className="header-inner">
-            <Link href="/" className="brand">
+          <div className="nav-inner">
+            <Link href="/" className="brand" title="Prayxis Home">
               <div className="brand-logo-wrap">
                 <img src="/assets/prayxis_logo.png?v=official" alt="Prayxis Technologies Official Logo" className="brand-logo-img" />
               </div>
               <div className="brand-titles">
-                <div className="brand-name">PRAY<span>XIS</span></div>
+                <div className="brand-name">
+                  PRAY<span>XIS</span>
+                </div>
                 <div className="brand-caption">Foundation</div>
               </div>
             </Link>
 
-            <nav className="site-nav">
+            <nav className="nav-menu">
               <Link href="/courses" className="nav-link">Internships</Link>
-              <a href="#about-us" className="nav-link">About</a>
+              <a href="#about-us" className="nav-link">About Us</a>
               <a href="#why-join" className="nav-link">Why Join</a>
               <a href="#who-can-join" className="nav-link">Who Can Join</a>
-              <a href="#verify" className="nav-link">Verify ID</a>
-              <Link href="/login" className="btn btn-primary" style={{ padding: '8px 18px', fontSize: '13px' }}>
-                Student Login →
-              </Link>
+              <a href="#verify" className="nav-link">Verify Certificate</a>
+              <a href="#contact" className="nav-link">Contact</a>
             </nav>
+
+            <div className="nav-actions">
+              <a href="#verify" className="btn btn-sm btn-outline-gold">
+                Verify Certificate
+              </a>
+              <Link href="/login" className="btn btn-sm btn-outline-gold">
+                Login
+              </Link>
+              <Link href="/register" className="btn btn-sm btn-primary" style={{ fontWeight: 800 }}>
+                Get Started →
+              </Link>
+            </div>
           </div>
         </div>
       </header>
@@ -264,12 +276,12 @@ export default function HomeClient() {
 
               <div className="hero-cta-suite">
                 <Link href="/register" className="hero-btn-primary">
-                  Get Started (Create FREE Account) →
+                  <span>Get Started →</span>
                 </Link>
 
                 <div className="hero-live-row">
-                  <Link href="/courses" className="hero-btn-secondary">Explore All Programs</Link>
-                  <a href="#verify" className="hero-btn-secondary">Verify Certificate</a>
+                  <Link href="/courses" className="hero-btn-secondary">Explore Programs</Link>
+                  <a href="#verify" className="hero-btn-secondary">Verify Credential</a>
                 </div>
               </div>
             </div>
