@@ -36,8 +36,8 @@ export const FeaturedCourse: React.FC = () => {
           courseId: featured.id,
           courseSlug: 'full-stack',
           courseTitle: featured.title,
-          price: featured.discountPrice ?? 99,
-          offer: featured.offerTag ?? 'GANESH CHATURTHI OFFER',
+          price: featured.discountPrice ?? 199,
+          offer: featured.offerTag ?? 'SPECIAL OFFER',
         }),
       });
 
@@ -46,8 +46,8 @@ export const FeaturedCourse: React.FC = () => {
         userName: currentUser.name,
         userEmail: currentUser.email,
         courseTitle: featured.title,
-        price: featured.discountPrice ?? 99,
-        offer: 'Ganesh Chaturthi Special Offer',
+        price: featured.discountPrice ?? 199,
+        offer: featured.offerTag ?? 'Special Student Offer',
       });
 
       if (typeof window !== 'undefined') {
@@ -134,8 +134,8 @@ export const FeaturedCourse: React.FC = () => {
             <div className="p-4 rounded-xl bg-prayxis-bg/60 border border-amber-500/30 space-y-3">
               <div className="flex items-center justify-between text-amber-300 font-mono text-[11px] font-bold">
                 <span className="flex items-center gap-1.5">
-                  <span className="animate-pulse">🪔</span>
-                  <span>GANESH CHATURTHI SPECIAL OFFER</span>
+                  <span className="animate-pulse">✨</span>
+                  <span>SPECIAL STUDENT OFFER ACTIVE</span>
                 </span>
                 <span className="px-2 py-0.5 bg-amber-500/20 rounded text-[10px] text-amber-300">
                   90% OFF
@@ -144,10 +144,10 @@ export const FeaturedCourse: React.FC = () => {
               <div className="flex items-baseline justify-between font-mono">
                 <div className="flex items-baseline gap-3">
                   <span className="text-3xl sm:text-4xl font-extrabold text-prayxis-accent">
-                    ₹{featured.discountPrice ?? 99}
+                    ₹{featured.discountPrice ?? 199}
                   </span>
                   <span className="text-base text-prayxis-subtle line-through opacity-70">
-                    ₹{featured.originalPrice ?? 999}
+                    ₹{featured.originalPrice ?? 1999}
                   </span>
                 </div>
                 <span className="text-[10px] text-prayxis-muted uppercase tracking-wider">
@@ -172,7 +172,7 @@ export const FeaturedCourse: React.FC = () => {
                 ) : (
                   <>
                     <MessageCircle className="h-4 w-4 fill-black text-black" />
-                    <span>ENROLL NOW (₹99) →</span>
+                    <span>ENROLL NOW (₹{featured.discountPrice ?? 199}) →</span>
                   </>
                 )}
               </button>

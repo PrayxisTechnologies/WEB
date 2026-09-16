@@ -26,8 +26,8 @@ export function buildWhatsAppEnrollMessage(details: WhatsAppEnrollDetails): stri
     `🆔 *Student ID:* ${details.userId}\n` +
     `📧 *Email:* ${details.userEmail}\n` +
     `📚 *Course:* ${details.courseTitle}\n` +
-    `💰 *Offer Price:* ₹${details.price ?? 99} (Original: ₹999)\n` +
-    `🎁 *Offer:* ${details.offer ?? 'Ganesh Chaturthi Special Offer (90% OFF)'}\n` +
+    `💰 *Offer Price:* ₹${details.price ?? 99} (Original: ₹${details.price === 5999 ? '14,999' : details.price === 199 ? '1,999' : '999'})\n` +
+    `🎁 *Offer:* ${details.offer ?? 'Special Student Offer (Limited Period)'}\n` +
     `📅 *Date:* ${dateStr}\n` +
     `━━━━━━━━━━━━━━━━━━━━━━\n` +
     `*Hello Admin, I have submitted my course enrollment request on the Prayxis portal. Please verify and approve my access.*`

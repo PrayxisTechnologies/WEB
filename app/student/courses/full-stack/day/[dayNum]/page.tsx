@@ -92,7 +92,7 @@ export default function DayModulePage() {
             <p className="body-medium text-prayxis-muted leading-relaxed max-w-xl mx-auto font-normal">
               {courseStatus.isRequested
                 ? 'Your enrollment request is pending Admin verification. Contact our support desk on WhatsApp for immediate approval.'
-                : 'Aapne abhi tak is course me enroll nahi kiya hai. Ganesh Chaturthi Offer me enroll karke learning start karein.'}
+                : 'Aapne abhi tak is course me enroll nahi kiya hai. Special Student Offer me sirf ₹199 me enroll karke learning start karein.'}
             </p>
 
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -108,8 +108,8 @@ export default function DayModulePage() {
                     userName: user.name,
                     userEmail: user.email,
                     courseTitle: 'Full Stack Web Development',
-                    price: 99,
-                    offer: 'Ganesh Chaturthi Special Offer',
+                    price: 199,
+                    offer: 'Special Student Offer',
                   });
                   window.open(waUrl, '_blank');
                 }}

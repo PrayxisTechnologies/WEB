@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
     }
 
     const body = await req.json();
-    let { courseId, courseSlug, courseTitle, price = 99, offer = 'GANESH CHATURTHI OFFER' } = body;
+    let { courseId, courseSlug, courseTitle, price = 99, offer = 'SPECIAL STUDENT OFFER' } = body;
 
     if (!courseSlug && courseId) {
       if (courseId === 'full-stack-web' || courseId === 'full-stack') {

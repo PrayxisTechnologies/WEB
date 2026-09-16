@@ -554,7 +554,7 @@ export default function HomeClient() {
                         <span className="poster-duration-badge">⏳ 15 Days</span>
                       </div>
                       <div>
-                        <div className="poster-badge-free">Ganesh Chaturthi Offer: ₹49 <span style={{ textDecoration: 'line-through', opacity: 0.7 }}>₹999</span></div>
+                        <div className="poster-badge-free">Special Offer: ₹99 <span style={{ textDecoration: 'line-through', opacity: 0.7 }}>₹999</span></div>
                         <div className="poster-main-title">FULL STACK WEB DEVELOPMENT</div>
                         <div className="poster-details-row">
                           <span className="poster-badge-friendly">✔ Beginner Friendly</span>
@@ -567,7 +567,7 @@ export default function HomeClient() {
                         </div>
                       </div>
                       <div>
-                        <div className="poster-cta-btn">SPECIAL OFFER ₹49 ONLY</div>
+                        <div className="poster-cta-btn">SPECIAL OFFER ₹99 ONLY</div>
                         <div className="poster-footer-strip">
                           <span>www.prayxis.com</span>
                           <span>(+91) 78777 16367</span>
@@ -589,10 +589,10 @@ export default function HomeClient() {
                     </div>
                     <button
                       type="button"
-                      onClick={() => handleEnrollClick('Full Stack Web Development', '15 Days', 49)}
+                      onClick={() => handleEnrollClick('Full Stack Web Development', '15 Days', 99)}
                       className="btn-enroll-blue"
                     >
-                      🚀 Enroll Now (₹49)
+                      🚀 Enroll Now (₹99)
                     </button>
                   </div>
                 </div>
@@ -611,7 +611,7 @@ export default function HomeClient() {
                         <span className="poster-duration-badge">⏳ 15 Days</span>
                       </div>
                       <div>
-                        <div className="poster-badge-free">Ganesh Chaturthi Offer: ₹49 <span style={{ textDecoration: 'line-through', opacity: 0.7 }}>₹999</span></div>
+                        <div className="poster-badge-free">Special Offer: ₹99 <span style={{ textDecoration: 'line-through', opacity: 0.7 }}>₹999</span></div>
                         <div className="poster-main-title">BASIC ETHICAL HACKING</div>
                         <div className="poster-details-row">
                           <span className="poster-badge-friendly">✔ Beginner Friendly</span>
@@ -624,7 +624,7 @@ export default function HomeClient() {
                         </div>
                       </div>
                       <div>
-                        <div className="poster-cta-btn">SPECIAL OFFER ₹49 ONLY</div>
+                        <div className="poster-cta-btn">SPECIAL OFFER ₹99 ONLY</div>
                         <div className="poster-footer-strip">
                           <span>www.prayxis.com</span>
                           <span>(+91) 78777 16367</span>
@@ -637,10 +637,10 @@ export default function HomeClient() {
                     <h4 className="internship-card-title">Basic Ethical Hacking &amp; Cyber Defense</h4>
                     <button
                       type="button"
-                      onClick={() => handleEnrollClick('Basic Ethical Hacking', '15 Days', 49)}
+                      onClick={() => handleEnrollClick('Basic Ethical Hacking', '15 Days', 99)}
                       className="btn-enroll-blue"
                     >
-                      🚀 Enroll Now (₹49)
+                      🚀 Enroll Now (₹99)
                     </button>
                   </div>
                 </div>
@@ -659,7 +659,7 @@ export default function HomeClient() {
                         <span className="poster-duration-badge">⏳ 15 Days</span>
                       </div>
                       <div>
-                        <div className="poster-badge-free">Ganesh Chaturthi Offer: ₹49 <span style={{ textDecoration: 'line-through', opacity: 0.7 }}>₹999</span></div>
+                        <div className="poster-badge-free">Special Offer: ₹99 <span style={{ textDecoration: 'line-through', opacity: 0.7 }}>₹999</span></div>
                         <div className="poster-main-title">PYTHON BASICS: ZERO SE</div>
                         <div className="poster-details-row">
                           <span className="poster-badge-friendly">✔ Beginner Friendly</span>
@@ -672,7 +672,7 @@ export default function HomeClient() {
                         </div>
                       </div>
                       <div>
-                        <div className="poster-cta-btn">SPECIAL OFFER ₹49 ONLY</div>
+                        <div className="poster-cta-btn">SPECIAL OFFER ₹99 ONLY</div>
                         <div className="poster-footer-strip">
                           <span>www.prayxis.com</span>
                           <span>(+91) 78777 16367</span>
@@ -685,10 +685,10 @@ export default function HomeClient() {
                     <h4 className="internship-card-title">Python Basics (Zero Se Interactive Track)</h4>
                     <button
                       type="button"
-                      onClick={() => handleEnrollClick('Python Basics', '15 Days', 49)}
+                      onClick={() => handleEnrollClick('Python Basics', '15 Days', 99)}
                       className="btn-enroll-blue"
                     >
-                      🚀 Enroll Now (₹49)
+                      🚀 Enroll Now (₹99)
                     </button>
                   </div>
                 </div>
@@ -707,7 +707,7 @@ export default function HomeClient() {
                         <span className="poster-duration-badge">⏳ 15 Days</span>
                       </div>
                       <div>
-                        <div className="poster-badge-free">Ganesh Chaturthi Offer: ₹49 <span style={{ textDecoration: 'line-through', opacity: 0.7 }}>₹999</span></div>
+                        <div className="poster-badge-free">Special Offer: ₹99 <span style={{ textDecoration: 'line-through', opacity: 0.7 }}>₹999</span></div>
                         <div className="poster-main-title">AI &amp; GENERATIVE AI</div>
                         <div className="poster-details-row">
                           <span className="poster-badge-friendly">✔ Beginner Friendly</span>
@@ -720,7 +720,7 @@ export default function HomeClient() {
                         </div>
                       </div>
                       <div>
-                        <div className="poster-cta-btn">SPECIAL OFFER ₹49 ONLY</div>
+                        <div className="poster-cta-btn">SPECIAL OFFER ₹99 ONLY</div>
                         <div className="poster-footer-strip">
                           <span>www.prayxis.com</span>
                           <span>(+91) 78777 16367</span>
@@ -733,10 +733,10 @@ export default function HomeClient() {
                     <h4 className="internship-card-title">Artificial Intelligence &amp; Generative AI</h4>
                     <button
                       type="button"
-                      onClick={() => handleEnrollClick('Artificial Intelligence and Generative AI', '15 Days', 49)}
+                      onClick={() => handleEnrollClick('Artificial Intelligence and Generative AI', '15 Days', 99)}
                       className="btn-enroll-blue"
                     >
-                      🚀 Enroll Now (₹49)
+                      🚀 Enroll Now (₹99)
                     </button>
                   </div>
                 </div>
@@ -765,7 +765,7 @@ export default function HomeClient() {
                         <span className="poster-duration-badge">⏳ 45 Days</span>
                       </div>
                       <div>
-                        <div className="poster-badge-free">Ganesh Chaturthi Offer: ₹99 <span style={{ textDecoration: 'line-through', opacity: 0.7 }}>₹999</span></div>
+                        <div className="poster-badge-free">Special Offer: ₹199 <span style={{ textDecoration: 'line-through', opacity: 0.7 }}>₹1,999</span></div>
                         <div className="poster-main-title">FULL STACK REACT &amp; NODE.JS</div>
                         <div className="poster-details-row">
                           <span className="poster-badge-friendly">✔ Comprehensive</span>
@@ -778,7 +778,7 @@ export default function HomeClient() {
                         </div>
                       </div>
                       <div>
-                        <div className="poster-cta-btn">SPECIAL OFFER ₹99 ONLY</div>
+                        <div className="poster-cta-btn">SPECIAL OFFER ₹199 ONLY</div>
                         <div className="poster-footer-strip">
                           <span>www.prayxis.com</span>
                           <span>(+91) 78777 16367</span>
@@ -799,10 +799,10 @@ export default function HomeClient() {
                     </div>
                     <button
                       type="button"
-                      onClick={() => handleEnrollClick('Full Stack Web Development (React & Node.js API)', '45 Days', 99)}
+                      onClick={() => handleEnrollClick('Full Stack Web Development (React & Node.js API)', '45 Days', 199)}
                       className="btn-enroll-blue"
                     >
-                      🚀 Enroll Now (₹99)
+                      🚀 Enroll Now (₹199)
                     </button>
                   </div>
                 </div>
@@ -821,7 +821,7 @@ export default function HomeClient() {
                         <span className="poster-duration-badge">⏳ 45 Days</span>
                       </div>
                       <div>
-                        <div className="poster-badge-free">Ganesh Chaturthi Offer: ₹99 <span style={{ textDecoration: 'line-through', opacity: 0.7 }}>₹999</span></div>
+                        <div className="poster-badge-free">Special Offer: ₹199 <span style={{ textDecoration: 'line-through', opacity: 0.7 }}>₹1,999</span></div>
                         <div className="poster-main-title">ETHICAL HACKING &amp; PEN TESTING</div>
                         <div className="poster-details-row">
                           <span className="poster-badge-friendly">✔ Comprehensive</span>
@@ -834,7 +834,7 @@ export default function HomeClient() {
                         </div>
                       </div>
                       <div>
-                        <div className="poster-cta-btn">SPECIAL OFFER ₹99 ONLY</div>
+                        <div className="poster-cta-btn">SPECIAL OFFER ₹199 ONLY</div>
                         <div className="poster-footer-strip">
                           <span>www.prayxis.com</span>
                           <span>(+91) 78777 16367</span>
@@ -846,10 +846,10 @@ export default function HomeClient() {
                     <h4 className="internship-card-title">Ethical Hacking &amp; Penetration Testing</h4>
                     <button
                       type="button"
-                      onClick={() => handleEnrollClick('Ethical Hacking & Penetration Testing', '45 Days', 99)}
+                      onClick={() => handleEnrollClick('Ethical Hacking & Penetration Testing', '45 Days', 199)}
                       className="btn-enroll-blue"
                     >
-                      🚀 Enroll Now (₹99)
+                      🚀 Enroll Now (₹199)
                     </button>
                   </div>
                 </div>
@@ -868,7 +868,7 @@ export default function HomeClient() {
                         <span className="poster-duration-badge">⏳ 45 Days</span>
                       </div>
                       <div>
-                        <div className="poster-badge-free">Ganesh Chaturthi Offer: ₹99 <span style={{ textDecoration: 'line-through', opacity: 0.7 }}>₹999</span></div>
+                        <div className="poster-badge-free">Special Offer: ₹199 <span style={{ textDecoration: 'line-through', opacity: 0.7 }}>₹1,999</span></div>
                         <div className="poster-main-title">PYTHON FULL STACK &amp; FASTAPI</div>
                         <div className="poster-details-row">
                           <span className="poster-badge-friendly">✔ Comprehensive</span>
@@ -881,7 +881,7 @@ export default function HomeClient() {
                         </div>
                       </div>
                       <div>
-                        <div className="poster-cta-btn">SPECIAL OFFER ₹99 ONLY</div>
+                        <div className="poster-cta-btn">SPECIAL OFFER ₹199 ONLY</div>
                         <div className="poster-footer-strip">
                           <span>www.prayxis.com</span>
                           <span>(+91) 78777 16367</span>
@@ -893,10 +893,10 @@ export default function HomeClient() {
                     <h4 className="internship-card-title">Python Full Stack &amp; FastAPI Microservices</h4>
                     <button
                       type="button"
-                      onClick={() => handleEnrollClick('Python Full Stack & FastAPI', '45 Days', 99)}
+                      onClick={() => handleEnrollClick('Python Full Stack & FastAPI', '45 Days', 199)}
                       className="btn-enroll-blue"
                     >
-                      🚀 Enroll Now (₹99)
+                      🚀 Enroll Now (₹199)
                     </button>
                   </div>
                 </div>
@@ -915,7 +915,7 @@ export default function HomeClient() {
                         <span className="poster-duration-badge">⏳ 45 Days</span>
                       </div>
                       <div>
-                        <div className="poster-badge-free">Ganesh Chaturthi Offer: ₹99 <span style={{ textDecoration: 'line-through', opacity: 0.7 }}>₹999</span></div>
+                        <div className="poster-badge-free">Special Offer: ₹199 <span style={{ textDecoration: 'line-through', opacity: 0.7 }}>₹1,999</span></div>
                         <div className="poster-main-title">DEEP LEARNING &amp; LLMS</div>
                         <div className="poster-details-row">
                           <span className="poster-badge-friendly">✔ Comprehensive</span>
@@ -928,7 +928,7 @@ export default function HomeClient() {
                         </div>
                       </div>
                       <div>
-                        <div className="poster-cta-btn">SPECIAL OFFER ₹99 ONLY</div>
+                        <div className="poster-cta-btn">SPECIAL OFFER ₹199 ONLY</div>
                         <div className="poster-footer-strip">
                           <span>www.prayxis.com</span>
                           <span>(+91) 78777 16367</span>
@@ -940,10 +940,10 @@ export default function HomeClient() {
                     <h4 className="internship-card-title">Artificial Intelligence &amp; Deep Learning Master Track</h4>
                     <button
                       type="button"
-                      onClick={() => handleEnrollClick('AI & Deep Learning Master Track', '45 Days', 99)}
+                      onClick={() => handleEnrollClick('AI & Deep Learning Master Track', '45 Days', 199)}
                       className="btn-enroll-blue"
                     >
-                      🚀 Enroll Now (₹99)
+                      🚀 Enroll Now (₹199)
                     </button>
                   </div>
                 </div>
@@ -953,7 +953,7 @@ export default function HomeClient() {
             {/* 3 Months Advanced Internship */}
             <div className="category-heading-block" style={{ marginTop: '3rem' }}>
               <h3 className="category-title">
-                🎓 3 Months Advanced Internship <span className="badge-red">[Industry Capstone Based]</span>
+                🎓 3 to 6 Months Flagship Specialization <span className="badge-red">[Live Classes &amp; Capstone Track]</span>
               </h3>
               <div className="category-underline" />
             </div>
@@ -969,23 +969,23 @@ export default function HomeClient() {
                           <img src="/assets/prayxis_logo.png?v=official" alt="Prayxis Technologies Official Logo" className="poster-logo-img" />
                           <span className="poster-brand-text">PRAYXIS FOUNDATION</span>
                         </div>
-                        <span className="poster-duration-badge">⏳ 3 Months</span>
+                        <span className="poster-duration-badge">⏳ 3 Months (Live Classes)</span>
                       </div>
                       <div>
-                        <div className="poster-badge-free">Ganesh Chaturthi Offer: ₹149 <span style={{ textDecoration: 'line-through', opacity: 0.7 }}>₹1,999</span></div>
+                        <div className="poster-badge-free">Live Classes Offer: ₹5,999 <span style={{ textDecoration: 'line-through', opacity: 0.7 }}>₹14,999</span></div>
                         <div className="poster-main-title">FULL STACK ENTERPRISE ARCHITECTURE</div>
                         <div className="poster-details-row">
-                          <span className="poster-badge-friendly">✔ Advanced Level</span>
+                          <span className="poster-badge-friendly">✔ Live Classes &amp; Mentorship</span>
                           <div className="poster-checklist">
+                            <div>● Live Mentor-Led Interactive Classes</div>
                             <div>● Microservices &amp; Next.js 14</div>
-                            <div>● AWS &amp; Docker Deployment</div>
-                            <div>● Industry Capstone Project</div>
-                            <div>● Senior Digital Credentials</div>
+                            <div>● AWS &amp; Docker Production Deploy</div>
+                            <div>● Placement Assistance &amp; Credentials</div>
                           </div>
                         </div>
                       </div>
                       <div>
-                        <div className="poster-cta-btn">SPECIAL OFFER ₹149 ONLY</div>
+                        <div className="poster-cta-btn">SPECIAL OFFER ₹5,999 ONLY</div>
                         <div className="poster-footer-strip">
                           <span>www.prayxis.com</span>
                           <span>(+91) 78777 16367</span>
@@ -994,13 +994,13 @@ export default function HomeClient() {
                     </div>
                   </div>
                   <div className="internship-card-body tint-green">
-                    <h4 className="internship-card-title">Full Stack Enterprise Architecture</h4>
+                    <h4 className="internship-card-title">Full Stack Enterprise Architecture (Live Class Track)</h4>
                     <button
                       type="button"
-                      onClick={() => handleEnrollClick('Full Stack Enterprise Architecture', '3 Months', 149)}
+                      onClick={() => handleEnrollClick('Full Stack Enterprise Architecture (Live Classes)', '3 Months', 5999)}
                       className="btn-enroll-blue"
                     >
-                      🚀 Enroll Now (₹149)
+                      🚀 Enroll in Live Class (₹5,999)
                     </button>
                   </div>
                 </div>
@@ -1016,23 +1016,23 @@ export default function HomeClient() {
                           <img src="/assets/prayxis_logo.png?v=official" alt="Prayxis Technologies Official Logo" className="poster-logo-img" />
                           <span className="poster-brand-text">PRAYXIS FOUNDATION</span>
                         </div>
-                        <span className="poster-duration-badge">⏳ 3 Months</span>
+                        <span className="poster-duration-badge">⏳ 3 Months (Live Classes)</span>
                       </div>
                       <div>
-                        <div className="poster-badge-free">Ganesh Chaturthi Offer: ₹149 <span style={{ textDecoration: 'line-through', opacity: 0.7 }}>₹1,999</span></div>
+                        <div className="poster-badge-free">Live Classes Offer: ₹5,999 <span style={{ textDecoration: 'line-through', opacity: 0.7 }}>₹14,999</span></div>
                         <div className="poster-main-title">ADVANCED CYBERSECURITY &amp; SOC OPS</div>
                         <div className="poster-details-row">
-                          <span className="poster-badge-friendly">✔ Advanced Level</span>
+                          <span className="poster-badge-friendly">✔ Live Classes &amp; Mentorship</span>
                           <div className="poster-checklist">
+                            <div>● Live Mentor-Led Threat Labs</div>
                             <div>● SIEM Splunk &amp; ELK Monitoring</div>
-                            <div>● Threat Hunting &amp; Forensics</div>
-                            <div>● Enterprise Cyber Defense</div>
-                            <div>● Senior Digital Credentials</div>
+                            <div>● Threat Hunting &amp; Incident Response</div>
+                            <div>● Placement Assistance &amp; Credentials</div>
                           </div>
                         </div>
                       </div>
                       <div>
-                        <div className="poster-cta-btn">SPECIAL OFFER ₹149 ONLY</div>
+                        <div className="poster-cta-btn">SPECIAL OFFER ₹5,999 ONLY</div>
                         <div className="poster-footer-strip">
                           <span>www.prayxis.com</span>
                           <span>(+91) 78777 16367</span>
@@ -1041,13 +1041,13 @@ export default function HomeClient() {
                     </div>
                   </div>
                   <div className="internship-card-body tint-orange">
-                    <h4 className="internship-card-title">Advanced Cybersecurity &amp; SOC Operations</h4>
+                    <h4 className="internship-card-title">Advanced Cybersecurity &amp; SOC Operations (Live Class Track)</h4>
                     <button
                       type="button"
-                      onClick={() => handleEnrollClick('Advanced Cybersecurity & SOC Operations', '3 Months', 149)}
+                      onClick={() => handleEnrollClick('Advanced Cybersecurity & SOC Operations (Live Classes)', '3 Months', 5999)}
                       className="btn-enroll-blue"
                     >
-                      🚀 Enroll Now (₹149)
+                      🚀 Enroll in Live Class (₹5,999)
                     </button>
                   </div>
                 </div>
@@ -1063,23 +1063,23 @@ export default function HomeClient() {
                           <img src="/assets/prayxis_logo.png?v=official" alt="Prayxis Technologies Official Logo" className="poster-logo-img" />
                           <span className="poster-brand-text">PRAYXIS FOUNDATION</span>
                         </div>
-                        <span className="poster-duration-badge">⏳ 3 Months</span>
+                        <span className="poster-duration-badge">⏳ 3 Months (Live Classes)</span>
                       </div>
                       <div>
-                        <div className="poster-badge-free">Ganesh Chaturthi Offer: ₹149 <span style={{ textDecoration: 'line-through', opacity: 0.7 }}>₹1,999</span></div>
+                        <div className="poster-badge-free">Live Classes Offer: ₹5,999 <span style={{ textDecoration: 'line-through', opacity: 0.7 }}>₹14,999</span></div>
                         <div className="poster-main-title">AI &amp; AUTONOMOUS LLM AGENTS</div>
                         <div className="poster-details-row">
-                          <span className="poster-badge-friendly">✔ Advanced Level</span>
+                          <span className="poster-badge-friendly">✔ Live Classes &amp; Mentorship</span>
                           <div className="poster-checklist">
-                            <div>● LangChain &amp; Multi-Agents</div>
-                            <div>● Custom LLM Fine-Tuning</div>
-                            <div>● Autonomous AI Workforce</div>
-                            <div>● Senior Digital Credentials</div>
+                            <div>● Live Mentor-Led AI Workforce Labs</div>
+                            <div>● LangChain &amp; Multi-Agent Systems</div>
+                            <div>● Custom LLM Fine-Tuning &amp; RAG</div>
+                            <div>● Placement Assistance &amp; Credentials</div>
                           </div>
                         </div>
                       </div>
                       <div>
-                        <div className="poster-cta-btn">SPECIAL OFFER ₹149 ONLY</div>
+                        <div className="poster-cta-btn">SPECIAL OFFER ₹5,999 ONLY</div>
                         <div className="poster-footer-strip">
                           <span>www.prayxis.com</span>
                           <span>(+91) 78777 16367</span>
@@ -1088,13 +1088,13 @@ export default function HomeClient() {
                     </div>
                   </div>
                   <div className="internship-card-body tint-pink">
-                    <h4 className="internship-card-title">AI &amp; Autonomous LLM Agents</h4>
+                    <h4 className="internship-card-title">AI &amp; Autonomous LLM Agents (Live Class Track)</h4>
                     <button
                       type="button"
-                      onClick={() => handleEnrollClick('AI & Autonomous LLM Agents', '3 Months', 149)}
+                      onClick={() => handleEnrollClick('AI & Autonomous LLM Agents (Live Classes)', '3 Months', 5999)}
                       className="btn-enroll-blue"
                     >
-                      🚀 Enroll Now (₹149)
+                      🚀 Enroll in Live Class (₹5,999)
                     </button>
                   </div>
                 </div>

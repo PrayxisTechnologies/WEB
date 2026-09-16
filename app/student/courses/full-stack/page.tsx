@@ -109,7 +109,7 @@ export default function StudentFullStackDashboard() {
             <p className="body-medium text-prayxis-muted leading-relaxed max-w-xl mx-auto font-normal">
               {courseStatus.isRequested
                 ? 'Your enrollment request for Full Stack Web Development is pending Admin approval. Contact our support team on WhatsApp for quick activation.'
-                : 'Aapne abhi tak is course me enroll nahi kiya hai. Ganesh Chaturthi Special Offer me sirf ₹99 me enroll karein aur 45-day complete production curriculum access karein.'}
+                : 'Aapne abhi tak is course me enroll nahi kiya hai. Special Student Offer me sirf ₹199 me enroll karein aur 45-day complete production curriculum access karein.'}
             </p>
 
             <div className="pt-2 pb-2 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -127,8 +127,8 @@ export default function StudentFullStackDashboard() {
                       body: JSON.stringify({
                         courseSlug: 'full-stack',
                         courseTitle: 'Full Stack Web Development',
-                        price: 99,
-                        offer: 'GANESH CHATURTHI OFFER',
+                        price: 199,
+                        offer: 'SPECIAL STUDENT OFFER',
                       }),
                     });
                   }
@@ -137,8 +137,8 @@ export default function StudentFullStackDashboard() {
                     userName: currentUser.name,
                     userEmail: currentUser.email,
                     courseTitle: 'Full Stack Web Development',
-                    price: 99,
-                    offer: 'Ganesh Chaturthi Special Offer',
+                    price: 199,
+                    offer: 'Special Student Offer',
                   });
                   window.open(waUrl, '_blank');
                   fetchUserDataAndProgress();
@@ -147,7 +147,7 @@ export default function StudentFullStackDashboard() {
               >
                 <MessageCircle className="h-4 w-4 fill-black text-black" />
                 <span>
-                  {courseStatus.isRequested ? 'PING ON WHATSAPP (+91 78777 16367)' : 'ENROLL NOW FOR ₹99 →'}
+                  {courseStatus.isRequested ? 'PING ON WHATSAPP (+91 78777 16367)' : 'ENROLL NOW FOR ₹199 →'}
                 </span>
               </button>
 

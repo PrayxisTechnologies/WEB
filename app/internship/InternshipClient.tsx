@@ -32,7 +32,7 @@ const FAQS = [
   {
     question: 'What internship durations are available on PRAYXIS Internship Portal?',
     answer:
-      'We offer 3 distinct duration tracks: 15-Day Fast-Track (₹49), 45-Day Production Master (₹99), and 3-Month Advanced Specialization (₹149).',
+      'We offer 3 distinct duration tracks: 15-Day Fast-Track (₹99), 45-Day Production Master (₹199), and 3 to 6-Month Flagship Live Class Specialization (₹5,999).',
   },
   {
     question: 'Are PRAYXIS internship certificates official and verifiable?',
@@ -145,7 +145,7 @@ export default function InternshipClient() {
                     <span className="px-3 py-1 bg-prayxis-accent/10 border border-prayxis-accent/40 rounded-full text-prayxis-accent text-xs font-bold">
                       15 DAYS FAST-TRACK
                     </span>
-                    <span className="text-amber-400 font-extrabold text-lg">₹49</span>
+                    <span className="text-amber-400 font-extrabold text-lg">₹99</span>
                   </div>
                   <h3 className="text-xl font-extrabold text-prayxis-offwhite uppercase">
                     FAST-TRACK FOUNDATION
@@ -172,7 +172,7 @@ export default function InternshipClient() {
                   href="/register"
                   className="w-full py-3 bg-prayxis-accent/10 border border-prayxis-accent/40 text-prayxis-accent hover:bg-prayxis-accent hover:text-black font-bold uppercase rounded text-center transition-all mt-4 block"
                 >
-                  ENROLL FOR ₹49 →
+                  ENROLL FOR ₹99 →
                 </Link>
               </div>
 
@@ -186,7 +186,7 @@ export default function InternshipClient() {
                     <span className="px-3 py-1 bg-prayxis-accent/20 border border-prayxis-accent text-prayxis-accent text-xs font-bold">
                       45 DAYS MASTER TRACK
                     </span>
-                    <span className="text-amber-400 font-extrabold text-2xl">₹99</span>
+                    <span className="text-amber-400 font-extrabold text-2xl">₹199</span>
                   </div>
                   <h3 className="text-xl font-extrabold text-prayxis-offwhite uppercase">
                     PRODUCTION MASTER INTERNSHIP
@@ -213,7 +213,7 @@ export default function InternshipClient() {
                   href="/courses/full-stack"
                   className="w-full py-3.5 bg-prayxis-accent text-black font-extrabold uppercase rounded text-center hover:bg-white transition-all cyan-glow mt-4 block"
                 >
-                  EXPLORE MASTER TRACK (₹99) →
+                  EXPLORE MASTER TRACK (₹199) →
                 </Link>
               </div>
 
@@ -222,20 +222,20 @@ export default function InternshipClient() {
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <span className="px-3 py-1 bg-prayxis-accent/10 border border-prayxis-accent/40 rounded-full text-prayxis-accent text-xs font-bold">
-                      3 MONTHS SPECIALIZATION
+                      3-6 MONTHS LIVE SPECIALIZATION
                     </span>
-                    <span className="text-amber-400 font-extrabold text-lg">₹149</span>
+                    <span className="text-amber-400 font-extrabold text-lg">₹5,999</span>
                   </div>
                   <h3 className="text-xl font-extrabold text-prayxis-offwhite uppercase">
-                    EXECUTIVE SPECIALIZATION
+                    EXECUTIVE LIVE SPECIALIZATION
                   </h3>
                   <p className="text-xs text-prayxis-muted font-sans leading-relaxed">
-                    Advanced engineering track for students seeking complete mastery in systems architecture, microservices, and live capstone projects.
+                    Advanced engineering flagship track with interactive live classes, microservices, systems design, and capstone deployment.
                   </p>
                   <ul className="space-y-2 text-xs text-prayxis-muted font-sans pt-2">
                     <li className="flex items-center gap-2">
                       <CheckCircle2 className="h-4 w-4 text-prayxis-accent flex-shrink-0" />
-                      <span>3-Month Deep Technical Curriculum</span>
+                      <span>Live Interactive Classes &amp; Mentorship</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <CheckCircle2 className="h-4 w-4 text-prayxis-accent flex-shrink-0" />
@@ -251,7 +251,7 @@ export default function InternshipClient() {
                   href="/register"
                   className="w-full py-3 bg-prayxis-accent/10 border border-prayxis-accent/40 text-prayxis-accent hover:bg-prayxis-accent hover:text-black font-bold uppercase rounded text-center transition-all mt-4 block"
                 >
-                  ENROLL FOR ₹149 →
+                  ENROLL FOR ₹5,999 →
                 </Link>
               </div>
             </div>
@@ -416,7 +416,7 @@ export default function InternshipClient() {
             <div className="p-10 sm:p-14 bg-gradient-to-r from-[#0d1017] via-[#111622] to-[#0d1017] border border-prayxis-accent/60 rounded-3xl text-center space-y-6 cyan-glow">
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-prayxis-accent/10 border border-prayxis-accent/40 rounded-full font-mono text-xs text-prayxis-accent uppercase tracking-wider font-bold">
                 <Sparkles className="h-3.5 w-3.5 text-amber-400" />
-                <span>GANESH CHATURTHI SPECIAL OFFER ACTIVE</span>
+                <span>SPECIAL STUDENT OFFER ACTIVE</span>
               </div>
               <h2 className="font-mono text-3xl sm:text-4xl font-extrabold text-prayxis-offwhite uppercase tracking-tight">
                 READY TO START YOUR TECHNICAL INTERNSHIP?

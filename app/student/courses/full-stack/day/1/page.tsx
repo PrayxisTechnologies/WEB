@@ -10,7 +10,8 @@ import { ActiveLearningTracker, ActivityState } from '@/components/student/Activ
 import { ActiveLearningTimer } from '@/components/student/ActiveLearningTimer';
 import { HtmlPlayground } from '@/components/student/HtmlPlayground';
 import { LearningVisual } from '@/components/student/learning/LearningVisual';
-import { DAY_01_STEPS, DAY_01_QUIZ_QUESTIONS } from '@/data/day01Data';
+import { DAY_01_STEPS, DAY_01_QUIZ_QUESTIONS, DAY_01_STEPS_HINGLISH, DAY_01_QUIZ_QUESTIONS_HINGLISH } from '@/data/day01Data';
+import { LanguageSelector } from '@/components/student/LanguageSelector';
 import {
   Terminal,
   CheckCircle2,
@@ -84,11 +85,24 @@ export default function Day01LessonPage() {
     checkAuth();
   }, [router]);
 
-  const currentStep = DAY_01_STEPS.find((s) => s.id === currentStepId) || DAY_01_STEPS[0];
+  // Language preference state ('en' | 'hinglish')
+  const [currentLanguage, setCurrentLanguage] = useState<'en' | 'hinglish'>('en');
+
+  useEffect(() => {
+    const saved = localStorage.getItem('prayxis_course_language');
+    if (saved === 'hinglish' || saved === 'en') {
+      setCurrentLanguage(saved as 'en' | 'hinglish');
+    }
+  }, []);
+
+  const steps = currentLanguage === 'hinglish' ? DAY_01_STEPS_HINGLISH : DAY_01_STEPS;
+  const quizQuestions = currentLanguage === 'hinglish' ? DAY_01_QUIZ_QUESTIONS_HINGLISH : DAY_01_QUIZ_QUESTIONS;
+
+  const currentStep = steps.find((s) => s.id === currentStepId) || steps[0];
 
   const handleNextStep = () => {
     setCompletedSteps((prev) => new Set([...prev, currentStepId]));
-    if (currentStepId < DAY_01_STEPS.length) {
+    if (currentStepId < steps.length) {
       setCurrentStepId((prev) => prev + 1);
     }
   };
@@ -111,16 +125,16 @@ export default function Day01LessonPage() {
 
   const handleQuizSubmit = () => {
     let score = 0;
-    DAY_01_QUIZ_QUESTIONS.forEach((q) => {
+    quizQuestions.forEach((q) => {
       if (quizAnswers[q.id] === q.correctIndex) score += 1;
     });
     setQuizScore(score);
     setQuizSubmitted(true);
-    setCompletedSteps((prev) => new Set([...prev, DAY_01_STEPS.length - 1]));
+    setCompletedSteps((prev) => new Set([...prev, steps.length - 1]));
   };
 
   // Progress Calculation
-  const progressPercentage = Math.min(100, Math.round((completedSteps.size / DAY_01_STEPS.length) * 100));
+  const progressPercentage = Math.min(100, Math.round((completedSteps.size / steps.length) * 100));
 
   if (loading) {
     return (
@@ -156,7 +170,7 @@ export default function Day01LessonPage() {
             <p className="body-medium text-prayxis-muted leading-relaxed max-w-xl mx-auto font-normal">
               {courseStatus.isRequested
                 ? 'Your enrollment request for Full Stack Web Development is pending Admin approval. You can contact support on WhatsApp for quick activation.'
-                : 'Aapne abhi tak is course me enroll nahi kiya hai. Ganesh Chaturthi Special Offer me sirf ₹99 me enroll karein aur complete access payein.'}
+                : 'Aapne abhi tak is course me enroll nahi kiya hai. Special Student Offer me sirf ₹199 me enroll karein aur complete access payein.'}
             </p>
 
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -172,8 +186,8 @@ export default function Day01LessonPage() {
                     userName: user.name,
                     userEmail: user.email,
                     courseTitle: 'Full Stack Web Development',
-                    price: 99,
-                    offer: 'Ganesh Chaturthi Special Offer',
+                    price: 199,
+                    offer: 'Special Student Offer',
                   });
                   window.open(waUrl, '_blank');
                 }}
@@ -234,8 +248,11 @@ export default function Day01LessonPage() {
             </nav>
           </div>
 
-          <div className="font-mono text-xs text-prayxis-accent font-bold uppercase tracking-wider">
-            DAY 01 / 45 — HTML FROM ABSOLUTE ZERO
+          <div className="flex items-center gap-3">
+            <div className="font-mono text-xs text-prayxis-accent font-bold uppercase tracking-wider hidden md:block">
+              DAY 01 / 45 — HTML FROM ABSOLUTE ZERO
+            </div>
+            <LanguageSelector currentLanguage={currentLanguage} onChange={setCurrentLanguage} />
           </div>
         </div>
 
@@ -264,7 +281,7 @@ export default function Day01LessonPage() {
                   </button>
                   <span className="text-prayxis-accent font-bold uppercase">DAY 01 STEPS</span>
                 </div>
-                <span className="text-prayxis-subtle">{completedSteps.size} / {DAY_01_STEPS.length} COMPLETED</span>
+                <span className="text-prayxis-subtle">{completedSteps.size} / {steps.length} COMPLETED</span>
               </div>
 
             {/* Progress Bar */}
@@ -283,7 +300,7 @@ export default function Day01LessonPage() {
 
             {/* Steps List */}
             <div className="space-y-1 max-h-[540px] overflow-y-auto pr-1">
-              {DAY_01_STEPS.map((st) => {
+              {steps.map((st) => {
                 const isActive = currentStepId === st.id;
                 const isCompleted = completedSteps.has(st.id);
 
@@ -682,7 +699,7 @@ export default function Day01LessonPage() {
               <button
                 type="button"
                 onClick={handleNextStep}
-                disabled={currentStepId === DAY_01_STEPS.length}
+                disabled={currentStepId === steps.length}
                 className="px-6 py-2.5 bg-prayxis-accent text-black font-bold rounded font-mono text-xs uppercase hover:bg-white transition-colors flex items-center gap-2 cyan-glow disabled:opacity-40"
               >
                 <span>NEXT STEP →</span>

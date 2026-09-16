@@ -100,7 +100,7 @@ export default function PythonDayModuleDynamicPage() {
             <p className="body-medium text-prayxis-muted leading-relaxed max-w-xl mx-auto font-normal">
               {courseStatus.isRequested
                 ? 'Your enrollment request is pending Admin verification. Contact our support desk on WhatsApp for immediate approval.'
-                : 'Aapne abhi tak is course me enroll nahi kiya hai. Ganesh Chaturthi Offer me enroll karke learning start karein.'}
+                : 'Aapne abhi tak is course me enroll nahi kiya hai. Special Student Offer me sirf ₹99 me enroll karke learning start karein.'}
             </p>
 
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -117,7 +117,7 @@ export default function PythonDayModuleDynamicPage() {
                     userEmail: user.email,
                     courseTitle: 'Python Basics: Zero Se',
                     price: 99,
-                    offer: 'Ganesh Chaturthi Special Offer',
+                    offer: 'Special Student Offer',
                   });
                   window.open(waUrl, '_blank');
                 }}

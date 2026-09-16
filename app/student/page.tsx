@@ -616,8 +616,8 @@ export default function StudentDashboardPage() {
                     userName: user.name,
                     userEmail: user.email,
                     courseTitle: 'Full Stack Web Development',
-                    price: 99,
-                    offer: 'Ganesh Chaturthi Special Offer',
+                    price: 199,
+                    offer: 'Special Student Offer',
                   });
                   window.open(waUrl, '_blank');
                 }}
@@ -679,7 +679,7 @@ export default function StudentDashboardPage() {
                 <span>//</span>
                 <span>45 DAYS</span>
                 <span>//</span>
-                <span>GANESH CHATURTHI OFFER: ₹99</span>
+                <span>SPECIAL OFFER: ₹199</span>
               </div>
 
               <h2 className="font-mono text-2xl font-extrabold text-prayxis-offwhite uppercase group-hover:text-prayxis-accent transition-colors">
@@ -748,8 +748,8 @@ export default function StudentDashboardPage() {
                         userName: user.name,
                         userEmail: user.email,
                         courseTitle: 'Full Stack Web Development',
-                        price: 99,
-                        offer: 'Ganesh Chaturthi Special Offer',
+                        price: 199,
+                        offer: 'Special Student Offer',
                       });
                       window.open(waUrl, '_blank');
                     }}
@@ -788,7 +788,7 @@ export default function StudentDashboardPage() {
                 <div className="lg:col-span-8 space-y-4">
                   <div className="flex flex-wrap items-center gap-3">
                     <span className="font-mono text-xs text-prayxis-accent font-bold px-3 py-1 bg-prayxis-accent/10 rounded-full border border-prayxis-accent/30 uppercase">
-                      PYTHON SPECIALIZATION // 45 DAYS // GANESH CHATURTHI OFFER: ₹99
+                      PYTHON SPECIALIZATION // 15-30 DAYS // SPECIAL OFFER: ₹99
                     </span>
                   </div>
 
@@ -858,7 +858,7 @@ export default function StudentDashboardPage() {
                             userEmail: user.email,
                             courseTitle: 'Python Basics',
                             price: 99,
-                            offer: 'Ganesh Chaturthi Special Offer',
+                            offer: 'Special Student Offer',
                           });
                           window.open(waUrl, '_blank');
                         }}

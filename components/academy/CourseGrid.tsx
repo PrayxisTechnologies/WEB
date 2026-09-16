@@ -55,7 +55,7 @@ export const CourseGrid: React.FC = () => {
           courseSlug,
           courseTitle: course.title,
           price: course.discountPrice ?? 99,
-          offer: course.offerTag ?? 'GANESH CHATURTHI OFFER',
+          offer: course.offerTag ?? 'SPECIAL OFFER',
         }),
       });
 
@@ -66,7 +66,7 @@ export const CourseGrid: React.FC = () => {
         userEmail: currentUser.email,
         courseTitle: course.title,
         price: course.discountPrice ?? 99,
-        offer: 'Ganesh Chaturthi Special Offer',
+        offer: course.offerTag ?? 'Special Student Offer',
       });
 
       // Open WhatsApp in new tab for Admin (7877716367)
@@ -190,16 +190,17 @@ export const CourseGrid: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Offer & Pricing Section */}
+                {/* Special Student Offer Badge */}
                 <div className="space-y-4 pt-4 border-t border-white/10">
-                  {/* Ganesh Chaturthi Special Offer Badge */}
                   <div className="flex items-center justify-between gap-2 p-2 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-300 font-mono text-[10px] font-bold tracking-wide">
                     <span className="flex items-center gap-1.5">
                       <Sparkles className="h-3 w-3 text-amber-400 animate-pulse" />
-                      <span>GANESH CHATURTHI OFFER</span>
+                      <span>{course.offerTag || 'SPECIAL OFFER'}</span>
                     </span>
                     <span className="px-1.5 py-0.5 bg-amber-500/20 rounded text-[9px] text-amber-300 uppercase">
-                      90% OFF
+                      {course.originalPrice && course.discountPrice
+                        ? `${Math.round(((course.originalPrice - course.discountPrice) / course.originalPrice) * 100)}% OFF`
+                        : 'ACTIVE'}
                     </span>
                   </div>
 

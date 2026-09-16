@@ -225,8 +225,8 @@ export const db = {
             enrolledAt: now,
             requestedAt: now,
             status: user.isApproved ? 'ENROLLED' : 'REQUESTED',
-            price: 99,
-            offer: 'GANESH CHATURTHI OFFER',
+            price: 199,
+            offer: 'SPECIAL STUDENT OFFER',
           });
         }
       } catch (err) {
@@ -337,7 +337,7 @@ export const db = {
       courseSlug: string,
       courseTitle: string = 'Full Stack Web Development',
       price: number = 99,
-      offer: string = 'GANESH CHATURTHI OFFER'
+      offer: string = 'SPECIAL STUDENT OFFER'
     ): Promise<EnrollmentRecord> => {
       const now = new Date().toISOString();
       try {

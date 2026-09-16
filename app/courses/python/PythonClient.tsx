@@ -46,7 +46,7 @@ const FAQS = [
   },
   {
     q: 'What is the duration and fee for the Python Track?',
-    a: 'The Python Internship offers flexible tracks: 15-Day Bootcamp (₹49) or 45-Day Internship Track (₹99 special offer price).',
+    a: 'The Python Internship offers flexible tracks: 15-Day Bootcamp (₹99) or 45-Day Internship Track (₹199 special offer price).',
   },
   {
     q: 'Will I receive a verified certificate upon completion?',

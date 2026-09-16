@@ -172,7 +172,7 @@ export default function PythonDay01LessonPage() {
             <p className="body-medium text-prayxis-muted leading-relaxed max-w-xl mx-auto font-normal">
               {courseStatus.isRequested
                 ? 'Your enrollment request for Python Basics is pending Admin approval. You can contact support on WhatsApp for quick activation.'
-                : 'Aapne abhi tak is course me enroll nahi kiya hai. Ganesh Chaturthi Special Offer me sirf ₹99 me enroll karein aur complete access payein.'}
+                : 'Aapne abhi tak is course me enroll nahi kiya hai. Special Student Offer me sirf ₹99 me enroll karein aur complete access payein.'}
             </p>
 
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -189,7 +189,7 @@ export default function PythonDay01LessonPage() {
                     userEmail: user.email,
                     courseTitle: 'Python Basics: Zero Se',
                     price: 99,
-                    offer: 'Ganesh Chaturthi Special Offer',
+                    offer: 'Special Student Offer',
                   });
                   window.open(waUrl, '_blank');
                 }}

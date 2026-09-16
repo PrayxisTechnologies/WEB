@@ -1030,3 +1030,977 @@ export const DAY_02_CHECKLIST: string[] = [
   'I can debug basic HTML structure problems',
   'I can create an HTML page from scratch',
 ];
+
+export const DAY_02_STEPS_HINGLISH: LessonStep[] = [
+  {
+    id: 1,
+    title: '01 — HTML Document Structure',
+    concept: 'HTML DOCUMENT STRUCTURE',
+    easyExplanation:
+      'Day 02 me aapka swagat hai! Kal aapne dekha ki webpage kya hota hai aur basic tags kaise kaam karte hain. Aaj hum deep dive karenge ki professional HTML document ki structure kaise set ki jaati hai. Webpage bas randomly tags dalne se nahi banta—ye ek ghar ki tarah systematic layout follow karta hai (Foundation → Main Structure → Rooms → Interior).',
+    realExample:
+      'Jaise har ghar me foundation, walls, roof aur rooms hote hain, waise hi har valid HTML document me DOCTYPE declaration, root html element, head section (metadata/title ke liye) aur body section (visible content ke liye) hota hai.',
+    whereDoWeSeeIt:
+      'Browser par kisi bhi webpage par right-click karke "View Page Source" click karo—aapko sabse pehle <!DOCTYPE html> uske baad <html>, <head>, aur <body> dikhega.',
+    why: 'Browser ko clearly pata hona chahiye ki tab par title kya dikhana hai aur screen par headings/buttons kaha render karne hain.',
+    visualType: 'tag-nesting',
+    syntax: '<!DOCTYPE html>\n<html>\n  <head>\n    <title>Title</title>\n  </head>\n  <body>\n    Content...\n  </body>\n</html>',
+    syntaxBreakdown: [
+      'DOCTYPE: Modern HTML5 document declaration jo sabse upar rehta hai.',
+      'html: Outer root container jo pure document ko hold karta hai.',
+      'head: Non-visible document information, title, aur metadata.',
+      'body: Visible webpage content jo visitors ko screen par dikhta hai.',
+    ],
+    teacherExample: `<!DOCTYPE html>
+<html>
+<head>
+  <title>Prayxis Day 02</title>
+</head>
+<body>
+  <h1>HTML Document Structure</h1>
+  <p>Sikhiye kaise professional webpages structure hote hain.</p>
+</body>
+</html>`,
+    whatYouShouldSee:
+      'Browser structural tags padhta hai, tab title ko "Prayxis Day 02" set karta hai, aur h1 heading aur paragraph ko main viewport par display karta hai.',
+    microPractice: {
+      prompt: 'HTML document ke basic structural outline ko review karein.',
+      starterCode: `<!DOCTYPE html>
+<html>
+<head>
+  <title>My Structured Page</title>
+</head>
+<body>
+
+  <h1>Building Web Foundations</h1>
+  <p>HTML document structure simple aur logical hai.</p>
+
+</body>
+</html>`,
+    },
+    commonMistakes: [
+      'Ye bhool jana ki HTML document ko strict structural hierarchy ki zaroorat hoti hai.',
+      'Sochna ki HTML document structure ke liye CSS ya JS ki zaroorat hai.',
+    ],
+    question: {
+      text: 'Konsa example HTML document structure ke purpose ko sabse ache se samjhata hai?',
+      options: [
+        'Ek random shopping list jisme koi categories nahi hain',
+        'Ek ghar jisme foundation, outer walls (root), roof (head), aur living space (body) hota hai',
+        'Ek audio file jo media player me play ho rahi hai',
+        'Ek database table jisme passwords save hain',
+      ],
+      correctIndex: 1,
+      explanation:
+        'HTML document ek strict layout par chalta hai (DOCTYPE, html root, head for metadata, aur body for visible content).',
+    },
+  },
+
+  {
+    id: 2,
+    title: '02 — What Is an HTML Document?',
+    concept: 'WHAT IS AN HTML DOCUMENT?',
+    easyExplanation:
+      'HTML document ek plain text file hoti hai jisme HTML code instructions hote hain jo browser ko batate hain ki webpage kaise organize hoga. HTML document hamesha .html file extension use karta hai (jaise: index.html). Browser is file ko open karke har tag ko interpret karta hai aur visual webpage render karta hai.',
+    realExample:
+      'Jab aap apne laptop par index.html file open karte hain, aapka web browser file ki line by line reading karta hai aur code ko visual UI me convert kar deta hai.',
+    whereDoWeSeeIt:
+      'Har web server par HTML document files (index.html, about.html, contact.html) store hoti hain jo internet par load hoti hain.',
+    why: 'HTML Document (puri file) aur HTML Element (ek individual tag/piece) ke beech ka farak samjhna zaroori hai.',
+    visualType: 'browser-flow',
+    syntax: 'HTML DOCUMENT (index.html) ──▶ HTML STRUCTURE (html/head/body) ──▶ HTML ELEMENTS (h1/p) ──▶ VISIBLE WEBPAGE',
+    syntaxBreakdown: [
+      'HTML Document: Complete text file jo .html extension se save hoti hai.',
+      'HTML Element: Document ke andar ka individual building block (jaise <h1>Heading</h1>).',
+    ],
+    teacherExample: `<!-- File: index.html -->
+<h1>Welcome to Prayxis</h1>
+<p>Mera pehla structured webpage.</p>`,
+    whatYouShouldSee:
+      'File index.html browser me load hoti hai aur heading & paragraph screen par render karti hai.',
+    microPractice: {
+      prompt: 'Minimal index.html file structure ko check karein.',
+      starterCode: `<!-- File: index.html -->
+<h1>Welcome to Prayxis Academy</h1>
+<p>HTML document files ko samjhna.</p>`,
+    },
+    commonMistakes: [
+      'HTML file ko .html ki jagah .txt ya .doc extension se save karna.',
+      'HTML Document (puri file) aur HTML Element (ek tag) me confuse hona.',
+    ],
+    question: {
+      text: 'HTML document files ke liye konsa file extension standard hota hai?',
+      options: ['.txt', '.docx', '.html', '.css'],
+      correctIndex: 2,
+      explanation: 'HTML document files ko .html extension ke sath save karna zaroori hai taaki browser unhe compile kar sake.',
+    },
+  },
+
+  {
+    id: 3,
+    title: '03 — <!DOCTYPE html>',
+    concept: '<!DOCTYPE html> DECLARATION',
+    easyExplanation:
+      'Modern HTML document ki sabse pehli line hamesha <!DOCTYPE html> honi chahiye. Isko DOCTYPE declaration kehte hain. Ye browser ko batata hai ki document modern HTML5 standards me likha gaya hai taaki browser page ko standard mode me render kare without quirks mode error.',
+    realExample:
+      '<!DOCTYPE html> ko ek official stamp ki tarah samjho jo declare karta hai: "Ye document modern HTML5 standards follow karta hai!"',
+    whereDoWeSeeIt: 'Internet par har modern website source file ki line 1 par.',
+    why: '<!DOCTYPE html> ke bina older ya modern browsers elements ko inconsistent legacy mode me render kar sakte hain.',
+    visualType: 'dom-tree',
+    syntax: '<!DOCTYPE html>',
+    syntaxBreakdown: [
+      '< ! : Instruction/declaration directive show karta hai.',
+      'DOCTYPE: Parser ko batata hai ki konsa document standard declare ho raha hai.',
+      'html: Modern HTML5 standard specify karta hai.',
+    ],
+    teacherExample: `<!DOCTYPE html>
+<html>
+  <head>
+    <title>Modern Document</title>
+  </head>
+  <body>
+    <p>Modern HTML standards use ho rahe hain!</p>
+  </body>
+</html>`,
+    whatYouShouldSee: 'Browser modern standards rendering mode me initialize hota hai.',
+    microPractice: {
+      prompt: 'Line 1 par modern DOCTYPE declaration add karein.',
+      starterCode: `<!DOCTYPE html>
+<html>
+  <body>
+    <p>Modern HTML document initialized.</p>
+  </body>
+</html>`,
+    },
+    commonMistakes: [
+      'Sochna ki <!DOCTYPE html> ek closing tag wala HTML element hai (Ye bas ek single declaration directive hai!).',
+      '<!DOCTYPE html> ko body ya head ke andar likhna line 1 ki jagah.',
+    ],
+    question: {
+      text: '<!DOCTYPE html> ka main purpose kya hai?',
+      options: [
+        'Webpage ke upar visible title create karna',
+        'Browser ko batana ki document modern HTML5 standards use karta hai',
+        'Page me background colors add karna',
+        'Webpage ko database se connect karna',
+      ],
+      correctIndex: 1,
+      explanation: '<!DOCTYPE html> browser ko document ko modern HTML5 standards se parse karne ki instruction deta hai.',
+    },
+  },
+
+  {
+    id: 4,
+    title: '04 — <html> Root Element',
+    concept: '<html> ROOT ELEMENT',
+    easyExplanation:
+      '<html> tag HTML document ka ROOT element hota hai. "Root" ka matlab hai ye outer main container hai jo baki saare tags ko apne andar hold karta hai. Har head tag, title tag, body tag, heading aur paragraph <html> aur </html> ke andar rehte hain.',
+    realExample:
+      '<html> ko ghar ki outer building boundary ki tarah samjho. Ghar ke andar ki har cheez (rooms, furniture, roof) outer building walls ke andar hoti hai.',
+    whereDoWeSeeIt: '<!DOCTYPE html> ke bilkul neeche pure document ko wrap karte hue.',
+    why: 'Ye browser ko batata hai ki HTML content kahan se start (<html>) aur kahan end (</html>) hota hai.',
+    visualType: 'tag-nesting',
+    syntax: '<html>\n  <!-- All document tags go here -->\n</html>',
+    syntaxBreakdown: [
+      '<html> : Document ka opening root tag.',
+      '</html> : Document end karne wala closing root tag.',
+    ],
+    teacherExample: `<!DOCTYPE html>
+<html>
+  <head>
+    <title>Root Example</title>
+  </head>
+  <body>
+    <h1>Inside the Root</h1>
+  </body>
+</html>`,
+    whatYouShouldSee: 'Root container head aur body sections ko enclose karta hai.',
+    microPractice: {
+      prompt: 'Document sections ko root <html> element me wrap karein.',
+      starterCode: `<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Root Element Test</title>
+  </head>
+  <body>
+    <p>Sab kuch html root ke andar hai.</p>
+  </body>
+
+</html>`,
+    },
+    commonMistakes: [
+      '<html> ko <!DOCTYPE html> se pehle likh dena.',
+      '</html> ko <body> tag khatam hone se pehle close kar dena.',
+    ],
+    question: {
+      text: '<html> element ko "root element" kyu kaha jata hai?',
+      options: [
+        'Kyunki ye webpage par ped (trees) ugata hai',
+        'Kyunki ye main outer container hai jo baki saare elements ko hold karta hai',
+        'Kyunki ye password check karta hai',
+        'Kyunki isme sirf images hoti hain',
+      ],
+      correctIndex: 1,
+      explanation: '<html> top-level root container hai jo pure HTML document tree ko hold karta hai.',
+    },
+  },
+
+  {
+    id: 5,
+    title: '05 — HTML Nesting',
+    concept: 'HTML NESTING & PARENT/CHILD',
+    easyExplanation:
+      'Nesting ka matlab hai ek HTML element ko doosre HTML element ke andar rakhna. Bahar wale element ko PARENT kehte hain aur andar wale element ko CHILD kehte hain. Proper nesting web development ka sabse important fundamental rule hai!',
+    realExample:
+      'Nesting ko boxes ke andar boxes ki tarah samjho. Ek chhota box bade box ke andar hai. Aapko pehle andar ka chhota box close karna hoga tabhi outer box close ho sakta hai!',
+    whereDoWeSeeIt: 'Har HTML layout nested elements par chalta hai (jaise <p><strong>Bold Text</strong></p>).',
+    why: 'Improper nesting se HTML DOM structure toot jata hai aur browsers me layout bugs aate hain.',
+    visualType: 'tag-nesting',
+    syntax: '<!-- CORRECT NESTING -->\n<p>\n  <strong>Hello World</strong>\n</p>\n\n<!-- INCORRECT NESTING -->\n<p>\n  <strong>Hello World</p>\n</strong>',
+    syntaxBreakdown: [
+      'Parent Element: Enclosing outer element (jaise <p>).',
+      'Child Element: Enclosed inner element (jaise <strong>).',
+      'Rule: Inner tags ko outer tags se PEHLE close karein!',
+    ],
+    teacherExample: `<!-- Parent: <body>, Children: <h1> & <p> -->
+<body>
+  <h1>Parent and Child Example</h1>
+  <p>Paragraph <strong>body element</strong> ka child hai.</p>
+</body>`,
+    whatYouShouldSee: 'Properly nested tags bina layout break huye render hote hain.',
+    microPractice: {
+      prompt: 'Code snippet me improper nesting bug ko fix karein.',
+      starterCode: `<!-- Fix this nesting error -->
+<p>
+  <strong>Correct Nesting Practice</strong>
+</p>`,
+    },
+    commonMistakes: [
+      'Outer tag ko inner tag se pehle close karna (jaise <p><strong>Text</p></strong> GALAT hai!).',
+      'Parent-child hierarchy rules ko bhool jana.',
+    ],
+    question: {
+      text: 'Konsa code snippet CORRECT HTML nesting dikhata hai?',
+      options: [
+        '<p><strong>Hello World</p></strong>',
+        '<p><strong>Hello World</strong></p>',
+        '<strong><p>Hello World</strong></p>',
+        '<p><strong>Hello World',
+      ],
+      correctIndex: 1,
+      explanation: '<p><strong>Hello World</strong></p> me <strong> tag <p> ke andar khulta hai aur <p> ke close hone se PEHLE close hota hai.',
+    },
+  },
+
+  {
+    id: 6,
+    title: '06 — <head> Section',
+    concept: '<head> SECTION',
+    easyExplanation:
+      '<head> section me webpage ke ABOUT (metadata/info) details hoti hain. <head> ke andar ka content direct webpage screen par visible text ki tarah nahi dikhta. Ye document metadata, page title, character set aur browser instructions store karta hai.',
+    realExample:
+      '<head> ko car ke engine aur control panel ki tarah samjho—ye saari important settings hold karta hai jo passengers ko direct seats par nahi dikhti.',
+    whereDoWeSeeIt: '<html> ke bilkul baad aur <body> se pehle.',
+    why: 'Browsers aur search engines ko document metadata ke liye dedicated jagah chahiye hoti hai.',
+    visualType: 'dom-tree',
+    syntax: '<head>\n  <title>Document Title</title>\n</head>',
+    syntaxBreakdown: [
+      '<head> : Metadata aur document info section open karta hai.',
+      '</head> : Body section shuru hone se pehle head close karta hai.',
+    ],
+    teacherExample: `<!DOCTYPE html>
+<html>
+<head>
+  <title>Head Section Samjhein</title>
+</head>
+<body>
+  <p>Visible content body me jata hai, head me nahi!</p>
+</body>
+</html>`,
+    whatYouShouldSee: 'Browser tab name ke liye <head> me title padhta hai, jabki body content screen par dikhta hai.',
+    microPractice: {
+      prompt: '<head> tag <body> se pehle hai ya nahi verify karein.',
+      starterCode: `<!DOCTYPE html>
+<html>
+<head>
+  <title>Head Section Mastery</title>
+</head>
+<body>
+  <h1>Head vs Body</h1>
+  <p>Head document info ke liye hai, body visible content ke liye.</p>
+</body>
+</html>`,
+    },
+    commonMistakes: [
+      'Main visible content jaise <h1> ya <p> ko <head> me dalna (Visible content <body> me jata hai!).',
+      '<head> ko <body> ke andar likh dena.',
+    ],
+    question: {
+      text: '<head> section ke andar kis type ki information store hoti hai?',
+      options: [
+        'Screen par dikhne wale visible headings aur buttons',
+        'Webpage ke ABOUT information (title, metadata, document settings)',
+        'Database user accounts',
+        'Screen ke footer me dikhne wala copyright text',
+      ],
+      correctIndex: 1,
+      explanation: '<head> section document metadata aur browsers/search engines ke instructions ko store karta hai.',
+    },
+  },
+
+  {
+    id: 7,
+    title: '07 — <title> Element',
+    concept: '<title> ELEMENT',
+    easyExplanation:
+      '<title> element webpage ka title define karta hai. Isko MUST <head> section ke andar hi rakha jata hai. <title> ka text browser tab par sabse upar aur Google search result titles me dikhta hai!',
+    realExample:
+      'Apne browser screen par sabse upar tab ko dekho—wahan "Day 02 — HTML Document Structure" likha hai. Ye exact text <title> tag me likha gaya hai!',
+    whereDoWeSeeIt: 'Har webpage par <head> ke andar. Browser tab aur search engine results me dikhta hai.',
+    why: 'Users aur search engines ko pehchanna hota hai ki tab me konsa page khula hai.',
+    visualType: 'browser-flow',
+    syntax: '<head>\n  <title>Prayxis Full Stack Academy</title>\n</head>',
+    syntaxBreakdown: [
+      '<title>: Opening title tag.',
+      'Title Text: Browser tab par display hone wala string.',
+      '</title>: Closing title tag.',
+    ],
+    teacherExample: `<!DOCTYPE html>
+<html>
+<head>
+  <title>Prayxis Academy — Day 02</title>
+</head>
+<body>
+  <h1>Welcome to Lesson 02</h1>
+  <p>Browser tab title aur h1 heading ko compare karein.</p>
+</body>
+</html>`,
+    whatYouShouldSee: 'Browser tab "Prayxis Academy — Day 02" display karta hai jabki screen viewport <h1> heading dikhata hai.',
+    microPractice: {
+      prompt: 'Webpage tab title ko "My Portfolio Website" set karein.',
+      starterCode: `<!DOCTYPE html>
+<html>
+<head>
+  <title>My Portfolio Website</title>
+</head>
+<body>
+  <h1>John Doe Developer</h1>
+</body>
+</html>`,
+    },
+    commonMistakes: [
+      '<title> (browser tab title) aur <h1> (visible webpage heading) me confuse hona.',
+      '<title> ko <head> ki jagah <body> me rakhna.',
+    ],
+    question: {
+      text: '<title> tag ke andar likha gaya text kahan dikhta hai?',
+      options: [
+        'Webpage body par ek bade bold heading ke roop me',
+        'Browser tab me sabse upar aur search engine search titles me',
+        'Screen ke bottom footer me',
+        'Pop-up alert dialog ke andar',
+      ],
+      correctIndex: 1,
+      explanation: '<title> element browser tab par dikhne wala title text set karta hai.',
+    },
+  },
+
+  {
+    id: 8,
+    title: '08 — <body> Section',
+    concept: '<body> SECTION',
+    easyExplanation:
+      '<body> section me webpage ka sara VISIBLE content hota hai. Jo bhi visitor screen par dekhta aur interact karta hai—headings, paragraphs, images, buttons, aur forms—wo sab <body> aur </body> tags ke andar hota hai.',
+    realExample:
+      'Jab aap kisi website par scroll karte ho, articles padhte ho ya buttons click karte ho, aap <body> section ke andar ke elements se interact kar rahe hote ho.',
+    whereDoWeSeeIt: '</head> ke bilkul baad aur <html> ke andar.',
+    why: 'Browser <body> ke andar ki har cheez ko main viewport window par render karta hai.',
+    visualType: 'dom-tree',
+    syntax: '<body>\n  <h1>Main Heading</h1>\n  <p>Visible paragraph text...</p>\n</body>',
+    syntaxBreakdown: [
+      '<body> : Visible content viewport area open karta hai.',
+      '</body> : Visible content section close karta hai.',
+    ],
+    teacherExample: `<!DOCTYPE html>
+<html>
+<head>
+  <title>Body Section Demo</title>
+</head>
+<body>
+  <h1>Yahan Sab Kuch Visible Hai</h1>
+  <p>Headings, paragraphs aur buttons body ke andar hote hain.</p>
+</body>
+</html>`,
+    whatYouShouldSee: 'Browser main screen area par h1 aur paragraph render karta hai.',
+    microPractice: {
+      prompt: '<body> tag ke andar heading aur paragraph add karein.',
+      starterCode: `<!DOCTYPE html>
+<html>
+<head>
+  <title>Body Practice</title>
+</head>
+<body>
+
+  <h1>My First Structured Body</h1>
+  <p>Visible content body ke andar hota hai.</p>
+
+</body>
+</html>`,
+    },
+    commonMistakes: [
+      '<title> ko <body> ke andar rakhna.',
+      'Visible content ko <body> ke bahar ya </body> ke baad likhna.',
+    ],
+    question: {
+      text: 'Users ko dikhne wala sara visible content kis HTML section me rakha jata hai?',
+      options: ['<head>', '<title>', '<body>', '<!DOCTYPE>'],
+      correctIndex: 2,
+      explanation: '<body> section screen viewport par render hone wale sabhi visible elements ko hold karta hai.',
+    },
+  },
+
+  {
+    id: 9,
+    title: '09 — Complete HTML Structure',
+    concept: 'COMPLETE HTML STRUCTURE',
+    easyExplanation:
+      'Aapne jo bhi sikha hai, ab sabko ek complete professional HTML document skeleton me combine karte hain! Internet par duniya ki har professional website isi skeleton structure ko follow karti hai.',
+    realExample: 'Ye 10-line skeleton millions of websites ki foundation hai:',
+    whereDoWeSeeIt: 'Professional HTML file ka line-by-line breakdown:',
+    why: 'Is skeleton ko master karke aap scratch se clean, valid HTML documents likh sakte hain.',
+    visualType: 'dom-tree',
+    syntax: `<!DOCTYPE html>
+<html>
+  <head>
+    <title>My First Website</title>
+  </head>
+  <body>
+    <h1>Welcome to My Website</h1>
+    <p>This is my first structured webpage.</p>
+  </body>
+</html>`,
+    syntaxBreakdown: [
+      'Line 1: <!DOCTYPE html> → Modern HTML5 declaration directive.',
+      'Line 2: <html> → Root container opening tag.',
+      'Line 3: <head> → Document metadata section opening tag.',
+      'Line 4: <title>My First Website</title> → Browser tab title.',
+      'Line 5: </head> → Closes head metadata section.',
+      'Line 6: <body> → Visible content section opening tag.',
+      'Line 7: <h1>Welcome to My Website</h1> → Main visible heading.',
+      'Line 8: <p>This is my first structured webpage.</p> → Paragraph content.',
+      'Line 9: </body> → Closes visible content section.',
+      'Line 10: </html> → Closes root document container.',
+    ],
+    teacherExample: `<!DOCTYPE html>
+<html>
+  <head>
+    <title>Prayxis Master Skeleton</title>
+  </head>
+  <body>
+    <h1>Full Stack Web Development</h1>
+    <p>Day 02 complete HTML document skeleton.</p>
+  </body>
+</html>`,
+    whatYouShouldSee: 'Ek fully valid HTML5 document jo browser cleanly parse karta hai.',
+    microPractice: {
+      prompt: 'Complete HTML skeleton ko review karein.',
+      starterCode: `<!DOCTYPE html>
+<html>
+  <head>
+    <title>Complete Structure</title>
+  </head>
+  <body>
+
+    <h1>Mastering HTML Skeleton</h1>
+    <p>Har professional website isi foundation ko use karti hai.</p>
+
+  </body>
+</html>`,
+    },
+    commonMistakes: [
+      '<head> aur <body> ke order ko ulta kar dena.',
+      '</head>, </body>, ya </html> ke closing tags ko bhool jana.',
+    ],
+    question: {
+      text: 'Standard HTML file me document sections ka correct order kya hota hai?',
+      options: [
+        '<html> → <body> → <head> → <!DOCTYPE html>',
+        '<!DOCTYPE html> → <html> → <head> → <body>',
+        '<body> → <head> → <html> → <!DOCTYPE html>',
+        '<!DOCTYPE html> → <body> → <head> → <html>',
+      ],
+      correctIndex: 1,
+      explanation: 'Standard order: <!DOCTYPE html> pehle, fir <html>, uske baad <head>, aur last me <body>.',
+    },
+  },
+
+  {
+    id: 10,
+    title: '10 — HTML Indentation & Clean Code',
+    concept: 'HTML INDENTATION & CLEAN CODE',
+    easyExplanation:
+      'Indentation ka matlab hai spaces (normally 2 ya 4 spaces) add karke ye dikhana ki konse elements doosre elements ke andar nested hain. Browsers ko indentation se koi matlab nahi hota—wo messy code bhi padh lete hain. Lekin HUMANS (aap, aapki team, aur employers) ko clean, indented code chahiye hota hai taaki projects easily samajh aayein!',
+    realExample:
+      'Messy code aur indented code ko compare karein. Indented code se ek second me dikhta hai ki konse tags <head> aur <body> ke andar hain.',
+    whereDoWeSeeIt: 'Worldwide software engineering teams ki best practice.',
+    why: 'Clean code bugs ko rokta hai aur debugging ko fast banata hai.',
+    visualType: 'code-editor',
+    syntax: '<!-- GOOD CLEAN INDENTATION -->\n<!DOCTYPE html>\n<html>\n  <head>\n    <title>Clean Code</title>\n  </head>\n  <body>\n    <h1>Indented Heading</h1>\n  </body>\n</html>',
+    syntaxBreakdown: [
+      'Root <html> column 0 par rehta hai.',
+      'Direct children (<head>, <body>) 2 spaces indented hote hain.',
+      'Grandchildren (<title>, <h1>) 4 spaces indented hote hain.',
+    ],
+    teacherExample: `<!DOCTYPE html>
+<html>
+  <head>
+    <title>Clean Indentation</title>
+  </head>
+  <body>
+    <h1>Easy to Read</h1>
+    <p>Indentation document hierarchy ko saaf dikhata hai.</p>
+  </body>
+</html>`,
+    whatYouShouldSee: 'Code editor me clear visual tree structure.',
+    microPractice: {
+      prompt: 'Properly indented HTML structure ko dekhein.',
+      starterCode: `<!DOCTYPE html>
+<html>
+  <head>
+    <title>Clean Code Demo</title>
+  </head>
+  <body>
+    <h1>Properly Indented HTML</h1>
+    <p>Dekhiye kaise nested tags 2 spaces se indented hain.</p>
+  </body>
+</html>`,
+    },
+    commonMistakes: [
+      'Sochna ki indentation se browser screen par font visual change hota hai (Indentation sirf developers ki readability ke liye hai!).',
+      'Tabs aur spaces ko bina rules mix kar dena.',
+    ],
+    question: {
+      text: 'HTML code indentation ka main purpose kya hota hai?',
+      options: [
+        'Browser screen par font sizes change karna',
+        'Code structure ko developers ke liye padhna aur manage karna aasan banana',
+        'Internet connection speed fast karna',
+        'HTML ko Python code me convert karna',
+      ],
+      correctIndex: 1,
+      explanation: 'Indentation element nesting ko visually clear banata hai taaki code developers ke liye clean rahe.',
+    },
+  },
+
+  {
+    id: 11,
+    title: '11 — HTML Comments',
+    concept: 'HTML COMMENTS',
+    easyExplanation:
+      'HTML comments developers ke liye code notes hote hain. Web browser comments ko bilkul ignore kar deta hai aur unhe webpage screen par DISPLAY NAHI KARTA. Comments is syntax se likhe jaate hain: <!-- Ye ek comment hai -->.',
+    realExample:
+      'Developers comments se code sections ko label karte hain (jaise <!-- Navigation Bar -->, <!-- Header -->, <!-- Footer -->) taaki team member code samajh sake.',
+    whereDoWeSeeIt: 'HTML code files ke andar logic aur sections ko document karne ke liye.',
+    why: 'Comments developers ko reminders chhodne aur bade HTML files ko organize rakhne me help karte hain.',
+    visualType: 'code-editor',
+    syntax: '<!-- Ye ek HTML comment hai -->',
+    syntaxBreakdown: [
+      '<!-- : HTML comment open karta hai.',
+      'Comment Text: Developer note jo browser render nahi karta.',
+      '--> : HTML comment close karta hai.',
+    ],
+    teacherExample: `<body>
+  <!-- Main Header Section -->
+  <h1>Welcome to Prayxis</h1>
+
+  <!-- Introduction Paragraph -->
+  <p>Aaj hum HTML comments padh rahe hain.</p>
+</body>`,
+    whatYouShouldSee: 'Browser sirf h1 aur paragraph render karta hai. Comments invisible rehte hain.',
+    microPractice: {
+      prompt: 'Heading tag ke upar ek HTML comment add karein.',
+      starterCode: `<body>
+  <!-- Header Section Note -->
+  <h1>Welcome to Prayxis</h1>
+  <p>Comments webpage visitors se hidden hote hain.</p>
+</body>`,
+    },
+    commonMistakes: [
+      'JavaScript // comments ya C# /* */ comments HTML file me use karna (HTML me MUST <!-- --> use hota hai!).',
+      'Comment ko --> se close karna bhool jana (isse baki pura page hide ho jata hai!).',
+    ],
+    question: {
+      text: 'Konsa syntax valid HTML comment banata hai?',
+      options: [
+        '// Ye comment hai',
+        '/* Ye comment hai */',
+        '<!-- Ye comment hai -->',
+        '# Ye comment hai',
+      ],
+      correctIndex: 2,
+      explanation: 'HTML comments ke liye opening <!-- aur closing --> syntax zaroori hota hai.',
+    },
+  },
+
+  {
+    id: 12,
+    title: '12 — Build Your Document',
+    concept: 'BUILD YOUR DOCUMENT (HANDS-ON)',
+    easyExplanation:
+      'Ab knowledge ko practice me lane ka time hai! Apne code editor me ek complete HTML document scratch se banao. Saare 9 structural rules follow karke valid index.html file ready karein.',
+    realExample:
+      'Ek index.html file banayein jisme DOCTYPE, html root, head section with title "About Me", body section with h1 heading, paragraph text, proper indentation, aur HTML comments hon.',
+    whereDoWeSeeIt: 'Aapka pehla hands-on document assembly challenge.',
+    why: 'Complete documents likhne se real confidence aur muscle memory banti hai.',
+    visualType: 'code-editor',
+    syntax: `<!DOCTYPE html>
+<html>
+  <head>
+    <title>About Me</title>
+  </head>
+  <body>
+    <!-- Main introduction -->
+    <h1>Hello, Main Web Developer Hoon</h1>
+    <p>Main Full Stack Web Development seekh raha hoon.</p>
+  </body>
+</html>`,
+    syntaxBreakdown: [
+      'Rule 1: Line 1 par modern <!DOCTYPE html> declaration.',
+      'Rule 2: Outer <html> root container.',
+      'Rule 3: <head> with <title> inside.',
+      'Rule 4: <body> with <h1>, <p>, aur <!-- comment -->.',
+      'Rule 5: Proper 2-space indentation.',
+    ],
+    teacherExample: `<!DOCTYPE html>
+<html>
+  <head>
+    <title>About Me</title>
+  </head>
+  <body>
+    <!-- Main introduction -->
+    <h1>Hello, Main Developer Hoon</h1>
+    <p>Prayxis Academy me Full Stack Web Development seekh raha hoon.</p>
+  </body>
+</html>`,
+    whatYouShouldSee: 'Ek clean, valid HTML document jo heading aur paragraph dikhata hai.',
+    microPractice: {
+      prompt: 'Structured HTML document build karne ki practice karein.',
+      starterCode: `<!DOCTYPE html>
+<html>
+  <head>
+    <title>Developer Profile</title>
+  </head>
+  <body>
+    <!-- Student Header -->
+    <h1>Prashant — Full Stack Intern</h1>
+    <p>Clean structured HTML pages bana raha hoon.</p>
+  </body>
+</html>`,
+    },
+    commonMistakes: [
+      'DOCTYPE declaration bhool jana.',
+      'End me </body> ya </html> close karna bhool jana.',
+    ],
+    question: {
+      text: 'Clean HTML document me visible <h1> heading kis element me honi chahiye?',
+      options: ['<head>', '<title>', '<body>', '<!DOCTYPE html>'],
+      correctIndex: 2,
+      explanation: 'Visible headings document ke <body> section ke andar aati hain.',
+    },
+  },
+
+  {
+    id: 13,
+    title: '13 — Practice Lab',
+    concept: 'PRACTICE LAB & STRUCTURE MATCHING',
+    easyExplanation:
+      'HTML document structure ki apni knowledge ko test karein! Elements ko unki sahi jagah se match karein, structural tags ko order karein, aur document rules check karein.',
+    realExample:
+      'Practice 01: College Page | Practice 02: Portfolio Page | Practice 03: Element Matching | Practice 04: Order Hierarchy | Practice 05: True/False Check.',
+    whereDoWeSeeIt: 'Day 02 ka interactive practice lab.',
+    why: 'Theoretical concepts ko immediate practical feedback se strong banata hai.',
+    visualType: 'tag-nesting',
+    syntax: 'DOCTYPE → First Line Declaration\ntitle → Inside <head>\nheading (h1) → Inside <body>\nparagraph (p) → Inside <body>\nhead → Document Metadata\nbody → Visible Webpage Content',
+    syntaxBreakdown: [
+      'DOCTYPE: First line declaration directive.',
+      'title: Belongs inside <head>.',
+      'h1 & p: Belong inside <body>.',
+    ],
+    teacherExample: `<!DOCTYPE html>
+<html>
+  <head>
+    <title>My College</title>
+  </head>
+  <body>
+    <!-- College Header -->
+    <h1>Welcome to My College</h1>
+    <p>Main web development seekh raha hoon.</p>
+  </body>
+</html>`,
+    whatYouShouldSee: 'Saare practice items HTML standards ke according set hote hain.',
+    microPractice: {
+      prompt: 'Practice 01: College Page Structure complete karein.',
+      starterCode: `<!DOCTYPE html>
+<html>
+  <head>
+    <title>My College</title>
+  </head>
+  <body>
+    <h1>Welcome to My College</h1>
+    <p>Main web development seekh raha hoon.</p>
+  </body>
+</html>`,
+    },
+    commonMistakes: [
+      'Practice ke time <title> ko <body> me rakhna.',
+      'DOCTYPE ko HTML root element se confuse karna.',
+    ],
+    question: {
+      text: 'Sahi ya Galat: <title> element <head> me rehta hai, jabki <h1> <body> me rehta hai.',
+      options: [
+        'Sahi — <title> head me metadata hai, <h1> body me visible content hai',
+        'Galat — Dono <head> me hote hain',
+        'Galat — Dono <body> me hote hain',
+        'Galat — Dono me se koi bhi <html> me nahi rehta',
+      ],
+      correctIndex: 0,
+      explanation: '<title> <head> me document metadata deta hai, jabki <h1> <body> me visible content render karta hai.',
+    },
+  },
+
+  {
+    id: 14,
+    title: '14 — Debugging Lab',
+    concept: 'DEBUGGING LAB (FIX BROKEN HTML)',
+    easyExplanation:
+      'Professional developers broken HTML ko debug karne me kaafi time spend karte hain! Is lab me broken HTML snippets ko analyze karein, structural bugs (missing tags, wrong section order, invalid nesting) dhundhein aur unhe fix karein.',
+    realExample:
+      'Bug 01: Missing </p> tag | Bug 02: <head> inside <body> | Bug 03: <title> closed with </head> | Bug 04: Validity check | Bug 05: Improper nesting.',
+    whereDoWeSeeIt: 'Real-world code reviews aur bug fixing.',
+    why: 'Debugging se aapki syntax errors aur structure accuracy badhti hai.',
+    visualType: 'code-editor',
+    syntax: '<!-- BUG 05 FIX -->\n<!-- BROKEN: <p><strong>Text</p></strong> -->\n<!-- FIXED:  <p><strong>Text</strong></p> -->',
+    syntaxBreakdown: [
+      'Bug 01: Always close paragraph tags with </p>.',
+      'Bug 02: Never place <head> inside <body>.',
+      'Bug 03: Always close <title> with </title>.',
+      'Bug 05: Always close inner nested tags before outer tags.',
+    ],
+    teacherExample: `<!-- BUG FIX DEMO -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fixed Document</title>
+  </head>
+  <body>
+    <h1>Correctly Placed Heading</h1>
+    <p>Missing closing tag fix ho gaya.</p>
+  </body>
+</html>`,
+    whatYouShouldSee: 'Browser me clean error-free HTML rendering.',
+    microPractice: {
+      prompt: 'Structural bug fix karein: <head> inside <body>.',
+      starterCode: `<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fixed Header Order</title>
+  </head>
+  <body>
+    <h1>Webpage Content</h1>
+  </body>
+</html>`,
+    },
+    commonMistakes: [
+      'Closing tags me forward slash / missing hone par dhyan na dena.',
+      'Tag opening aur closing order par dhyan na dena.',
+    ],
+    question: {
+      text: 'Is code me kya bug hai: <p><strong>Hello</p></strong> ?',
+      options: [
+        'Missing DOCTYPE declaration',
+        'Improper nesting: <p> close ho gaya <strong> close hone se PEHLE',
+        'Hello ki spelling galat hai',
+        'Missing <html> tag',
+      ],
+      correctIndex: 1,
+      explanation: 'Inner tag <strong> ko outer tag <p> se pehle close hona chahiye. Correct: <p><strong>Hello</strong></p>.',
+    },
+  },
+
+  {
+    id: 15,
+    title: '15 — Mini Project & Final Challenge',
+    concept: 'MINI PROJECT & FINAL CHALLENGE',
+    easyExplanation:
+      'Step 15 par pahunchne ke liye congratulations! Ab aap Day 02 Capstone Mini Project: "MY FIRST STRUCTURED WEBPAGE" ke liye ready hain. Saare 10 structural rules apply karke apni personal introduction webpage scratch se banayein!',
+    realExample:
+      'Ek personal webpage banayein jisme DOCTYPE, html root, head section, title "About Prashant", body section, 1 main heading, 2 paragraphs, 2 HTML comments, aur proper indentation ho.',
+    whereDoWeSeeIt: 'Full Stack Web Development Day 02 ka final evaluation challenge.',
+    why: 'Day 03 par jaane se pehle HTML document structure par complete mastery confirm karta hai.',
+    visualType: 'browser-flow',
+    syntax: `<!DOCTYPE html>
+<html>
+  <head>
+    <title>About Prashant</title>
+  </head>
+  <body>
+    <!-- Main Heading -->
+    <h1>Hello, Main Prashant Hoon</h1>
+
+    <!-- About Me Section -->
+    <p>Main Prayxis Academy me Full Stack Web Development seekh raha hoon.</p>
+    <p>Mera goal production-grade software applications banana hai.</p>
+  </body>
+</html>`,
+    syntaxBreakdown: [
+      '✓ DOCTYPE declaration present',
+      '✓ html root container present',
+      '✓ head section with title tag',
+      '✓ body section with h1 and two paragraphs',
+      '✓ HTML comments documenting code sections',
+      '✓ Proper indentation and valid tag nesting',
+    ],
+    teacherExample: `<!DOCTYPE html>
+<html>
+  <head>
+    <title>About Prashant</title>
+  </head>
+  <body>
+    <!-- Main Heading -->
+    <h1>Hello, Main Prashant Hoon</h1>
+
+    <!-- About Me Section -->
+    <p>Main Full Stack Web Development seekh raha hoon.</p>
+    <p>Mera goal professional web developer banna hai.</p>
+  </body>
+</html>`,
+    whatYouShouldSee: 'Ek complete, clean, structured HTML webpage.',
+    microPractice: {
+      prompt: 'Apna final Day 02 mini project code structure complete karein.',
+      starterCode: `<!DOCTYPE html>
+<html>
+  <head>
+    <title>About Prashant</title>
+  </head>
+  <body>
+    <!-- Main Heading -->
+    <h1>Hello, Main Prashant Hoon</h1>
+
+    <!-- About Me Section -->
+    <p>Main Full Stack Web Development seekh raha hoon.</p>
+    <p>Mera goal professional web developer banna hai.</p>
+  </body>
+</html>`,
+    },
+    commonMistakes: [
+      'CSS, JS, ya extra complex tags use karna (Day 02 strictly pure HTML document structure ke liye hai!).',
+      'HTML comments ya proper indentation skip karna.',
+    ],
+    question: {
+      text: 'Konsa 10-line skeleton har valid HTML5 webpage ki foundation banata hai?',
+      options: [
+        'DOCTYPE → html → head → title → /head → body → h1 → p → /body → /html',
+        'body → head → html → DOCTYPE',
+        'title → h1 → p → body → html',
+        'DOCTYPE → body → head → html',
+      ],
+      correctIndex: 0,
+      explanation: 'Har valid modern HTML webpage ye order follow karti hai: DOCTYPE → html → head (title) → body (content).',
+    },
+  },
+];
+
+export const DAY_02_QUIZ_QUESTIONS_HINGLISH: QuizQuestion[] = [
+  {
+    id: 1,
+    question: 'HTML document ke starting me normally konsa declaration hota hai?',
+    options: ['<html>', '<!DOCTYPE html>', '<head>', '<body>'],
+    correctIndex: 1,
+    explanation: '<!DOCTYPE html> line 1 par browser ko modern HTML5 standards declare karne ke liye hona chahiye.',
+  },
+  {
+    id: 2,
+    question: 'HTML document ka root element konsa hota hai?',
+    options: ['<body>', '<head>', '<html>', '<title>'],
+    correctIndex: 2,
+    explanation: '<html> element root container hai jo baki sabhi document elements ko hold karta hai.',
+  },
+  {
+    id: 3,
+    question: '<title> element normally kahan hona chahiye?',
+    options: ['<body> me', '<head> me', 'html ke bahar', 'h1 ke andar'],
+    correctIndex: 1,
+    explanation: '<title> document metadata deta hai aur MUST <head> ke andar rakha jata hai.',
+  },
+  {
+    id: 4,
+    question: 'Webpage ka visible content normally kahan rakha jata hai?',
+    options: ['<head>', '<title>', '<body>', '<!DOCTYPE>'],
+    correctIndex: 2,
+    explanation: 'Saare visible text, headings, buttons, aur images <body> section ke andar aate hain.',
+  },
+  {
+    id: 5,
+    question: 'HTML me nesting ka kya matlab hota hai?',
+    options: [
+      'HTML code files delete karna',
+      'Ek HTML element ko doosre HTML element ke andar rakhna',
+      'CSS stylesheets add karna',
+      'JavaScript functions run karna',
+    ],
+    correctIndex: 1,
+    explanation: 'Nesting ka matlab child elements ko parent elements ke andar rakhna hota hai (jaise <p><strong>Text</strong></p>).',
+  },
+  {
+    id: 6,
+    question: 'Konsa code snippet correctly nested hai?',
+    options: [
+      '<p><strong>Hello</p></strong>',
+      '<p><strong>Hello</strong></p>',
+      '<strong><p>Hello</strong></p>',
+      '<p><strong>Hello',
+    ],
+    correctIndex: 1,
+    explanation: 'Inner <strong> tag outer <p> tag ke close hone se PEHLE close hona chahiye.',
+  },
+  {
+    id: 7,
+    question: 'HTML indentation ka purpose kya hota hai?',
+    options: [
+      'Browser screen par font design change karta hai',
+      'Code structure ko human developers ke liye read aur maintain karne me easy banata hai',
+      'HTML tags ko CSS se replace karta hai',
+      'Backend database se connect karta hai',
+    ],
+    correctIndex: 1,
+    explanation: 'Indentation nested parent-child hierarchy ko developer readability ke liye visualize karta hai.',
+  },
+  {
+    id: 8,
+    question: 'Konsa syntax valid HTML comment banata hai?',
+    options: ['// comment', '/* comment */', '<!-- comment -->', '# comment'],
+    correctIndex: 2,
+    explanation: 'HTML comments me opening <!-- aur closing --> tags use hote hain.',
+  },
+  {
+    id: 9,
+    question: 'Konsa element document metadata jaise title hold karta hai?',
+    options: ['<body>', '<head>', '<h1>', '<p>'],
+    correctIndex: 1,
+    explanation: '<head> section document information aur metadata hold karta hai.',
+  },
+  {
+    id: 10,
+    question: 'Basic HTML document structure ka correct flow konsa hai?',
+    options: [
+      '<html><body><head></head></body></html>',
+      '<!DOCTYPE html><html><head><title>Page</title></head><body><h1>Hello</h1></body></html>',
+      '<body><head><title>Page</title></head></body>',
+      '<!DOCTYPE html><body><head></head></body>',
+    ],
+    correctIndex: 1,
+    explanation: 'Standard order: <!DOCTYPE html> → <html> → <head> → <title> → </head> → <body> → <h1> → </body> → </html>.',
+  },
+];
+

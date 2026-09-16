@@ -80,7 +80,7 @@ const homeSchema = {
       provider: { '@id': 'https://prayxis.in/#educational-organization' },
       offers: {
         '@type': 'Offer',
-        price: '49',
+        price: '99',
         priceCurrency: 'INR',
         availability: 'https://schema.org/InStock',
       },
@@ -99,7 +99,7 @@ const homeSchema = {
       provider: { '@id': 'https://prayxis.in/#educational-organization' },
       offers: {
         '@type': 'Offer',
-        price: '99',
+        price: '199',
         priceCurrency: 'INR',
         availability: 'https://schema.org/InStock',
       },
@@ -112,13 +112,13 @@ const homeSchema = {
     {
       '@type': 'Course',
       '@id': 'https://prayxis.in/#course-3m-fullstack',
-      name: '3 Months Full Stack Specialization Internship',
+      name: '3 Months Full Stack Specialization Internship (Live Classes)',
       description:
-        '3-month comprehensive software engineering specialization covering advanced full stack architecture, microservices, and live capstone.',
+        '3-month comprehensive live software engineering specialization covering advanced full stack architecture, microservices, and live capstone.',
       provider: { '@id': 'https://prayxis.in/#educational-organization' },
       offers: {
         '@type': 'Offer',
-        price: '149',
+        price: '5999',
         priceCurrency: 'INR',
         availability: 'https://schema.org/InStock',
       },

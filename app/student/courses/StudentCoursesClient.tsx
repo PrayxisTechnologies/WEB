@@ -162,8 +162,8 @@ export default function StudentCoursesClient() {
                             userName: currentUser.name,
                             userEmail: currentUser.email,
                             courseTitle: course.title,
-                            price: 99,
-                            offer: 'Ganesh Chaturthi Special Offer',
+                            price: course.discountPrice ?? 99,
+                            offer: course.offerTag ?? 'Special Student Offer',
                           });
                           window.open(waUrl, '_blank');
                         }}
@@ -187,8 +187,8 @@ export default function StudentCoursesClient() {
                           body: JSON.stringify({
                             courseSlug,
                             courseTitle: course.title,
-                            price: 99,
-                            offer: 'GANESH CHATURTHI OFFER',
+                            price: course.discountPrice ?? 99,
+                            offer: course.offerTag ?? 'SPECIAL OFFER',
                           }),
                         });
                         const waUrl = getWhatsAppEnrollUrl({
@@ -196,8 +196,8 @@ export default function StudentCoursesClient() {
                           userName: currentUser.name,
                           userEmail: currentUser.email,
                           courseTitle: course.title,
-                          price: 99,
-                          offer: 'Ganesh Chaturthi Special Offer',
+                          price: course.discountPrice ?? 99,
+                          offer: course.offerTag ?? 'Special Student Offer',
                         });
                         window.open(waUrl, '_blank');
                         fetchUserData();
@@ -205,7 +205,7 @@ export default function StudentCoursesClient() {
                       className="w-full px-4 py-3.5 bg-prayxis-accent text-black font-extrabold uppercase rounded text-center hover:bg-white transition-all flex items-center justify-center gap-2 cyan-glow cursor-pointer"
                     >
                       <MessageCircle className="h-4 w-4 fill-black text-black" />
-                      <span>ENROLL FOR ₹99 →</span>
+                      <span>ENROLL FOR ₹{course.discountPrice ?? 99} →</span>
                     </button>
                   )}
                 </div>

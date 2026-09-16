@@ -161,7 +161,7 @@ export default function PythonBasicsDashboard() {
             <p className="body-medium text-prayxis-muted leading-relaxed max-w-xl mx-auto font-normal">
               {courseStatus.isRequested
                 ? 'Your enrollment request for Python Basics is currently pending Admin approval. You can ping our team on WhatsApp for instant activation.'
-                : 'Aapne abhi tak is course me enroll nahi kiya hai. Ganesh Chaturthi Special Offer me sirf ₹99 me enroll karein aur 30-day interactive modules access karein.'}
+                : 'Aapne abhi tak is course me enroll nahi kiya hai. Special Student Offer me sirf ₹99 me enroll karein aur 30-day interactive modules access karein.'}
             </p>
 
             <div className="pt-2 pb-2 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -180,7 +180,7 @@ export default function PythonBasicsDashboard() {
                         courseSlug: 'python-basics',
                         courseTitle: 'Python Basics: Zero Se',
                         price: 99,
-                        offer: 'GANESH CHATURTHI OFFER',
+                        offer: 'SPECIAL STUDENT OFFER',
                       }),
                     });
                   }
@@ -190,7 +190,7 @@ export default function PythonBasicsDashboard() {
                     userEmail: currentUser.email,
                     courseTitle: 'Python Basics: Zero Se',
                     price: 99,
-                    offer: 'Ganesh Chaturthi Special Offer',
+                    offer: 'Special Student Offer',
                   });
                   window.open(waUrl, '_blank');
                   fetchUserDataAndProgress();
