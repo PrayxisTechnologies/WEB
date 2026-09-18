@@ -442,7 +442,7 @@
   animation: floatBubble 8s ease-in-out infinite;
 }
 
-/* SCROLL REVEAL INTERSECTION OBSERVER UTILITIES */
+/* SCROLL REVEAL INTERSECTION OBSERVER UTILITIES (YBI FOUNDATION ANIMATION SUITE) */
 .reveal-init {
   opacity: 0;
   transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
@@ -469,9 +469,53 @@
   transform: scale(0.82);
 }
 
+.reveal-zoom-in {
+  transform: scale(0.88);
+}
+
+.reveal-bounce-in {
+  transform: translateY(40px) scale(0.92);
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
 .reveal-init.reveal-active {
   opacity: 1;
   transform: translateY(0) translateX(0) scale(1);
+}
+
+/* Card Hover Lift Animations (YBI Foundation Style) */
+.pill-stat-card {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+.pill-stat-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 15px 35px rgba(0, 240, 255, 0.2);
+}
+
+.about-ledger-card {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+}
+.about-ledger-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold-bright);
+  box-shadow: 0 15px 35px rgba(212, 160, 23, 0.2);
+}
+
+.why-feature-card {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+.why-feature-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0, 240, 255, 0.5);
+  box-shadow: 0 15px 35px rgba(0, 240, 255, 0.15);
+}
+
+.internship-card {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+.internship-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 240, 255, 0.2);
 }
 
 /* Impact Pills */
@@ -757,98 +801,143 @@
   color: var(--gold-bright);
 }
 
-/* Who Can Join */
+/* Who Can Join Section Styling Fix */
 .who-can-join-section {
-  padding: 70px 0 80px 0;
+  padding: 80px 0;
   background-color: var(--bg-primary);
-  border-top: 1px solid var(--border-subtle);
-  border-bottom: 1px solid var(--border-subtle);
+  position: relative;
 }
 
-.who-can-join-grid {
-  display: grid;
-  grid-template-columns: 1.15fr 1.25fr;
-  gap: 40px;
-  align-items: center;
-}
-
-.who-card-box {
+.who-card-container {
   background: linear-gradient(145deg, #111522 0%, #090b12 100%);
   border: 1.5px solid var(--gold-border);
-  border-radius: 16px;
-  padding: 36px 32px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+  border-radius: 24px;
+  padding: 48px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(212, 160, 23, 0.12);
+  position: relative;
+  overflow: hidden;
 }
 
-.who-join-title {
-  font-size: 36px;
-  font-weight: 900;
-  color: #ffffff;
-  margin-bottom: 8px;
+.who-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 48px;
+  align-items: center;
 }
 
-.who-join-underline {
-  width: 46px;
-  height: 3px;
-  background: var(--gold-bright);
-  margin-bottom: 24px;
-}
-
-.who-join-list {
+.who-text-content {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin-bottom: 24px;
 }
 
-.who-join-item {
-  display: flex;
+.who-badge {
+  display: inline-flex;
   align-items: center;
-  gap: 12px;
-  font-size: 17px;
-  font-weight: 700;
-  color: #f1f5f9;
-}
-
-.who-domain-box {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 20px;
-  text-align: center;
-}
-
-.domains-text {
-  font-size: 15px;
-  color: #e2e8f0;
-  font-weight: 600;
-  line-height: 1.5;
-  margin-bottom: 6px;
-}
-
-.domain-highlight {
-  color: #38bdf8;
+  gap: 8px;
+  padding: 6px 16px;
+  background: rgba(0, 240, 255, 0.08);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  color: #00F0FF;
+  font-size: 11px;
   font-weight: 800;
+  text-transform: uppercase;
+  border-radius: 30px;
+  letter-spacing: 1.2px;
+  margin-bottom: 16px;
+  width: fit-content;
 }
 
-.branches-highlight {
-  font-size: 17px;
+.who-title {
+  font-size: 34px;
   font-weight: 900;
-  color: #ef4444;
+  color: #ffffff;
+  margin-bottom: 10px;
+  line-height: 1.25;
+  letter-spacing: -0.5px;
 }
 
-.who-students-card-wrapper {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 12px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+.who-underline {
+  width: 50px;
+  height: 3.5px;
+  background: var(--gold-bright);
+  margin-bottom: 20px;
+  border-radius: 2px;
+}
+
+.who-lead-desc {
+  font-size: 15px;
+  color: #94a3b8;
+  line-height: 1.65;
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+
+.who-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.who-check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #f1f5f9;
+  line-height: 1.5;
+}
+
+.who-check-bullet {
+  color: #22c55e;
+  font-weight: 900;
+  font-size: 16px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.who-action-wrap {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.who-visual-content {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(240,244,248,0.95) 100%);
+  padding: 10px;
   border: 2px solid var(--gold-border);
-  max-width: 580px;
-  width: 100%;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.who-visual-content:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 25px 55px rgba(0, 240, 255, 0.2);
 }
 
 .who-students-img {
   width: 100%;
   height: auto;
-  border-radius: 10px;
+  border-radius: 12px;
+  display: block;
+  object-fit: cover;
+}
+
+@media (max-width: 992px) {
+  .who-card-container {
+    padding: 32px 20px;
+  }
+  .who-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .who-title {
+    font-size: 26px;
+  }
 }
 
 /* Explore Internships */

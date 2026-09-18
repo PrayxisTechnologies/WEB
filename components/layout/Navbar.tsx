@@ -12,7 +12,6 @@ const NAV_LINKS = [
   { label: 'Academy', href: '/courses' },
   { label: 'Full Stack', href: '/courses/full-stack' },
   { label: 'Resources', href: '/resources' },
-  { label: 'Verify Certificate', href: '/#verify' },
 ];
 
 export const Navbar: React.FC = () => {

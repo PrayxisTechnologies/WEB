@@ -6,96 +6,10 @@ import { useRouter } from 'next/navigation';
 import '@/app/landing.css';
 import { getWhatsAppEnrollUrl } from '@/lib/whatsapp';
 
-interface CertificateRecord {
-  id: string;
-  studentName: string;
-  college: string;
-  domain: string;
-  duration: string;
-  completionDate: string;
-  grade: string;
-  mentor: string;
-  projectsCompleted: string;
-  hash: string;
-  image?: string;
-}
-
-const certificateDatabase: Record<string, CertificateRecord> = {
-  'PRX-CS-2026-0001': {
-    id: 'PRX-CS-2026-0001',
-    studentName: 'John Smith',
-    college: 'Cyber Security Institute, India',
-    domain: 'Cyber Security Professional Certification',
-    duration: 'Mandatory Course & Capstone Track with Distinction',
-    completionDate: '21/08/2026',
-    grade: 'Distinction (Best Award ★★★★★)',
-    mentor: 'Aayush Jangir (Trainer) & Yashika Kanwar (HR Manager)',
-    projectsCompleted: 'Offensive Penetration Testing & Capstone Defense Infrastructure',
-    hash: 'SHA256: 7f8a9b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a',
-    image: '/assets/prayxis_official_certificate.png',
-  },
-  'PRX-2024-8849': {
-    id: 'PRX-2024-8849',
-    studentName: 'Aditya Sharma',
-    college: 'IIT Roorkee',
-    domain: 'Artificial Intelligence & Machine Learning',
-    duration: '2 Months (Industrial Live Internship)',
-    completionDate: 'August 24, 2024',
-    grade: 'A+ (Distinction - 94.6%)',
-    mentor: 'Dr. R. K. Verma',
-    projectsCompleted: 'Autonomous Lane Detection & NLP Sentiment Engine',
-    hash: 'SHA256: 8f9b7c2a1e4d5678bc9012fae43198de77b',
-    image: '/assets/prayxis_official_certificate.png',
-  },
-  'PRX-2024-1022': {
-    id: 'PRX-2024-1022',
-    studentName: 'Priya Deshmukh',
-    college: 'NIT Nagpur',
-    domain: 'Full Stack Web Development (MERN Stack)',
-    duration: '3 Months (Live Guided Program)',
-    completionDate: 'July 15, 2024',
-    grade: 'A+ (Exemplary)',
-    mentor: 'Vikramaditya Rao',
-    projectsCompleted: 'Real-time Collaborative Whiteboard & E-Commerce API',
-    hash: 'SHA256: 4c3b2a1e8f901234de567890bc1234fae99c',
-    image: '/assets/prayxis_official_certificate.png',
-  },
-  'PRX-2024-5514': {
-    id: 'PRX-2024-5514',
-    studentName: 'Rohan Mehta',
-    college: 'VIT Vellore',
-    domain: 'Data Science & Predictive Analytics',
-    duration: '1 Month (Fast-Track Internship)',
-    completionDate: 'September 02, 2024',
-    grade: 'Grade A (Distinction)',
-    mentor: 'Ananya Sengupta',
-    projectsCompleted: 'Financial Fraud Detection & Time Series Stock Forecaster',
-    hash: 'SHA256: 99a8b7c6d5e4f3210123456789abcdef1234',
-    image: '/assets/prayxis_official_certificate.png',
-  },
-  'PRX-2024-7731': {
-    id: 'PRX-2024-7731',
-    studentName: 'Aman Verma',
-    college: 'Delhi Technological University (DTU)',
-    domain: 'Cloud Computing & DevOps (AWS & Docker)',
-    duration: '45 Days (Live Project Based)',
-    completionDate: 'June 28, 2024',
-    grade: 'A+ (Distinction - 96.2%)',
-    mentor: 'Karan Malhotra',
-    projectsCompleted: 'Automated CI/CD Kubernetes Deployment Pipeline',
-    hash: 'SHA256: ee43219087654321bcda9876543210fedcba',
-    image: '/assets/prayxis_official_certificate.png',
-  },
-};
-
 export default function HomeClient() {
   const router = useRouter();
   const [currentUser, setCurrentUser] = useState<any>(null);
   const [activeFilter, setActiveFilter] = useState('all');
-  const [certQuery, setCertQuery] = useState('');
-  const [certError, setCertError] = useState<string | null>(null);
-  const [selectedCert, setSelectedCert] = useState<CertificateRecord | null>(null);
-  const [isCertModalOpen, setIsCertModalOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   // Scroll Reveal Observer for Section Animations
@@ -128,26 +42,6 @@ export default function HomeClient() {
   const showToast = (msg: string) => {
     setToastMessage(msg);
     setTimeout(() => setToastMessage(null), 3500);
-  };
-
-  const handleVerify = (idToVerify?: string) => {
-    setCertError(null);
-    const id = (idToVerify || certQuery).trim().toUpperCase();
-    if (!id) {
-      setCertError('ID not valid! Please enter a Certificate ID.');
-      showToast('ID not valid! Please enter a Certificate ID.');
-      return;
-    }
-
-    const cert = certificateDatabase[id];
-    if (cert) {
-      setSelectedCert(cert);
-      setIsCertModalOpen(true);
-      setCertError(null);
-    } else {
-      setCertError(`ID not valid! Certificate "${id}" does not exist.`);
-      showToast(`ID not valid! Certificate "${id}" does not exist.`);
-    }
   };
 
   const handleEnrollClick = (courseTitle: string, duration: string, price: number | string = 99) => {
@@ -225,14 +119,10 @@ export default function HomeClient() {
               <a href="#about-us" className="nav-link">About Us</a>
               <a href="#why-join" className="nav-link">Why Join</a>
               <a href="#who-can-join" className="nav-link">Who Can Join</a>
-              <a href="#verify" className="nav-link">Verify Certificate</a>
               <a href="#contact" className="nav-link">Contact</a>
             </nav>
 
             <div className="nav-actions">
-              <a href="#verify" className="btn btn-sm btn-outline-gold">
-                Verify Certificate
-              </a>
               <Link href="/login" className="btn btn-sm btn-outline-gold">
                 Login
               </Link>
@@ -257,24 +147,24 @@ export default function HomeClient() {
 
           <div className="container">
             <div className="hero-ybi-content">
-              <div className="hero-top-badge">
+              <div className="hero-top-badge reveal-init reveal-swipe-down">
                 <span>🌟 Practical &amp; Project-Based Virtual Internship Platform</span>
               </div>
 
-              <h1 className="hero-ybi-title">Industrial Software Engineering &amp; Cybersecurity Internships</h1>
-              <div className="hero-ybi-underline" />
+              <h1 className="hero-ybi-title reveal-init reveal-swipe-up">Industrial Software Engineering &amp; Cybersecurity Internships</h1>
+              <div className="hero-ybi-underline reveal-init reveal-swipe-up" style={{ transitionDelay: '0.1s' }} />
 
-              <p className="hero-clean-lead">
+              <p className="hero-clean-lead reveal-init reveal-swipe-up" style={{ transitionDelay: '0.15s' }}>
                 Practical, project-based live technical training for engineering students and tech aspirants across India. Learn directly from industry mentors and build production-grade software capstones in Full Stack, Ethical Hacking, Python, and AI.
               </p>
 
-              <div className="hero-clean-meta">
+              <div className="hero-clean-meta reveal-init reveal-swipe-up" style={{ transitionDelay: '0.2s' }}>
                 <span className="meta-item">Trained 2,00,000+ Interns</span>
                 <span className="meta-item">Beginner to Advanced Tracks</span>
                 <span className="meta-item">Verifiable Digital Certificate</span>
               </div>
 
-              <div className="hero-cta-suite">
+              <div className="hero-cta-suite reveal-init reveal-bubble-pop" style={{ transitionDelay: '0.25s' }}>
                 <Link href="/register" className="hero-btn-primary">
                   <span>Get Started →</span>
                 </Link>
@@ -424,9 +314,9 @@ export default function HomeClient() {
         {/* WHO CAN JOIN SECTION */}
         <section className="who-can-join-section" id="who-can-join">
           <div className="container">
-            <div className="who-card-container">
+            <div className="who-card-container reveal-init reveal-zoom-in">
               <div className="who-grid">
-                <div className="who-text-content">
+                <div className="who-text-content reveal-init reveal-swipe-left">
                   <div className="who-badge">GRADUATES &amp; UNDERGRADUATES</div>
                   <h2 className="who-title">Who Can Join Prayxis Internships?</h2>
                   <div className="who-underline" />
@@ -460,7 +350,7 @@ export default function HomeClient() {
                   </div>
                 </div>
 
-                <div className="who-visual-content">
+                <div className="who-visual-content reveal-init reveal-swipe-right">
                   <img
                     src="/assets/who_can_join_visual.png"
                     alt="Who Can Join Prayxis Internship"
@@ -1284,129 +1174,6 @@ export default function HomeClient() {
           </div>
         </section>
 
-        {/* CERTIFICATE VERIFICATION SECTION */}
-        <section className="certificate-section" id="verify">
-          <div className="container">
-            <div className="cert-section-header">
-              <h2 className="cert-header-title">
-                <span>⛳</span> Download Your <span style={{ color: '#ef4444' }}>Internship Certificate</span> after Completion
-              </h2>
-              <div className="cert-header-underline" />
-            </div>
-
-            <div className="cert-grid">
-              {/* Left: Certificate Preview */}
-              <div
-                className="cert-preview-frame"
-                onClick={() => handleVerify()}
-                style={{
-                  cursor: 'pointer',
-                  position: 'relative',
-                  overflow: 'hidden',
-                  borderRadius: '12px',
-                  background: '#0b0e17',
-                  border: '2px solid var(--gold-border)',
-                }}
-              >
-                <div style={{ position: 'absolute', top: '14px', right: '14px', zIndex: 10 }}>
-                  <span
-                    style={{
-                      background: 'rgba(11, 14, 23, 0.9)',
-                      backdropFilter: 'blur(8px)',
-                      border: '1px solid var(--gold-bright)',
-                      color: 'var(--gold-bright)',
-                      fontSize: '11px',
-                      fontWeight: 800,
-                      padding: '4px 10px',
-                      borderRadius: '20px',
-                    }}
-                  >
-                    PREVIEW ONLY
-                  </span>
-                </div>
-
-                <img
-                  src="/assets/prayxis_official_certificate.png"
-                  alt="Prayxis Verifiable Digital Certificate Preview"
-                  style={{ width: '100%', height: 'auto', display: 'block' }}
-                />
-
-                <div
-                  style={{
-                    background: '#080a11',
-                    borderTop: '1px solid rgba(245,158,11,0.25)',
-                    padding: '12px 18px',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    fontSize: '12px',
-                  }}
-                >
-                  <span style={{ color: 'var(--text-secondary)' }}>
-                    Credential ID: <strong style={{ color: 'var(--gold-bright)' }}>{certQuery || 'Enter ID to Verify'}</strong>
-                  </span>
-                  <span style={{ color: '#25D366', fontWeight: 700 }}>
-                    ● Digitally Verified
-                  </span>
-                </div>
-              </div>
-
-              {/* Right: Benefits & Instant Search */}
-              <div className="cert-benefits-box">
-                <h3 className="cert-benefits-title">
-                  <span>🏆</span> Official Prayxis Credential
-                </h3>
-
-                <ul className="cert-benefits-list">
-                  <li className="cert-benefit-item">
-                    <span className="cert-benefit-check">✔</span>
-                    <span>Digitally Verifiable with QR Code &amp; Unique ID</span>
-                  </li>
-                  <li className="cert-benefit-item">
-                    <span className="cert-benefit-check">✔</span>
-                    <span>Industry Standardized Technical Curriculum</span>
-                  </li>
-                  <li className="cert-benefit-item">
-                    <span className="cert-benefit-check">✔</span>
-                    <span>Accepted for College Credits &amp; Degree Submissions</span>
-                  </li>
-                  <li className="cert-benefit-item">
-                    <span className="cert-benefit-check">✔</span>
-                    <span>Directly Importable to LinkedIn Certifications &amp; Resumes</span>
-                  </li>
-                </ul>
-
-                <div style={{ borderTop: '1px solid var(--border-subtle)', paddingTop: '18px', marginTop: '8px' }}>
-                  <h4 style={{ fontSize: '14px', fontWeight: 700, color: '#cbd5e1', marginBottom: '6px' }}>
-                    Instant Credential Check:
-                  </h4>
-                  <div className="verify-input-group">
-                    <input
-                      type="text"
-                      className="verify-input"
-                      value={certQuery}
-                      onChange={(e) => {
-                        setCertQuery(e.target.value);
-                        setCertError(null);
-                      }}
-                      placeholder="Enter Certificate ID"
-                      onKeyDown={(e) => e.key === 'Enter' && handleVerify()}
-                    />
-                    <button type="button" className="btn btn-primary" onClick={() => handleVerify()}>
-                      Verify ID
-                    </button>
-                  </div>
-
-                  {certError && (
-                    <div style={{ color: '#ef4444', fontSize: '13px', fontWeight: 800, marginTop: '8px', display: 'flex', items: 'center', gap: '6px' }}>
-                      <span>⚠️</span> {certError}
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
       </main>
 
       {/* FOOTER */}
@@ -1511,7 +1278,6 @@ export default function HomeClient() {
                 <li><a href="#about-us">About Prayxis</a></li>
                 <li><a href="#why-join">Why Choose Prayxis</a></li>
                 <li><a href="#who-can-join">Who Can Join</a></li>
-                <li><a href="#verify">Verify Certificate</a></li>
                 <li><Link href="/login">Student Login</Link></li>
                 <li><Link href="/admin/login">Admin Console</Link></li>
               </ul>
@@ -1554,7 +1320,6 @@ export default function HomeClient() {
               <div className="footer-bottom-links">
                 <Link href="/courses">Internships</Link>
                 <a href="#about-us">About</a>
-                <a href="#verify">Verify Certificate</a>
                 <Link href="/login">Login</Link>
               </div>
             </div>
@@ -1574,89 +1339,6 @@ export default function HomeClient() {
           <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.072-2.115-.515-1.745-.72-2.85-2.493-2.937-2.608-.087-.116-.708-.941-.708-1.793s.448-1.272.607-1.446c.159-.175.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.087-.179.182-.077.357.101.174.453.748.972 1.21.668.594 1.232.778 1.406.864.174.087.275.072.376-.043.101-.116.433-.506.549-.68.116-.174.231-.145.39-.087s1.011.477 1.184.564.289.13.332.203c.043.072.043.419-.101.824zm-3.423-10.416c-5.523 0-10 4.477-10 10 0 1.767.459 3.427 1.261 4.877l-1.261 4.607 4.747-1.245c1.401.765 3.007 1.199 4.713 1.199 5.522 0 10-4.477 10-10s-4.478-10-10-10z" />
         </svg>
       </a>
-
-      {/* Certificate Verification Modal */}
-      {isCertModalOpen && selectedCert && (
-        <div className="modal-overlay active" onClick={() => setIsCertModalOpen(false)}>
-          <div
-            className="modal-card"
-            style={{
-              maxWidth: '680px',
-              background: '#0f121d',
-              color: '#ffffff',
-              border: '1.5px solid var(--gold-border)',
-              maxHeight: '92vh',
-              overflowY: 'auto',
-            }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              type="button"
-              className="modal-close-btn"
-              onClick={() => setIsCertModalOpen(false)}
-            >
-              ✕ Close
-            </button>
-
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px', borderBottom: '1px solid rgba(255,255,255,0.08)', paddingBottom: '12px' }}>
-              <div>
-                <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '1.5px', color: 'var(--gold-bright)', textTransform: 'uppercase' }}>
-                  Official Verified Credential
-                </span>
-                <h3 style={{ fontSize: '18px', fontWeight: 800, color: '#ffffff', marginTop: '2px' }}>
-                  Prayxis Certificate of Achievement
-                </h3>
-              </div>
-              <span style={{ background: 'rgba(37, 211, 102, 0.15)', border: '1px solid #25D366', color: '#25D366', fontSize: '11px', fontWeight: 800, padding: '4px 10px', borderRadius: '20px' }}>
-                ● Digitally Verified
-              </span>
-            </div>
-
-            <div>
-              <div style={{ borderRadius: '8px', overflow: 'hidden', border: '1px solid rgba(245, 158, 11, 0.3)', background: '#07090e' }}>
-                <img
-                  src={selectedCert.image || '/assets/prayxis_official_certificate.png'}
-                  alt="Official Prayxis Digital Certificate Preview"
-                  style={{ width: '100%', height: 'auto', display: 'block' }}
-                />
-              </div>
-
-              <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '8px', padding: '14px 16px', marginTop: '14px', fontSize: '12.5px', lineHeight: '1.6' }}>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
-                  <div>Recipient: <strong style={{ color: 'var(--gold-bright)' }}>{selectedCert.studentName}</strong></div>
-                  <div>Credential ID: <strong style={{ color: '#ffffff' }}>{selectedCert.id}</strong></div>
-                  <div>Track: <strong style={{ color: '#ffffff' }}>{selectedCert.domain}</strong></div>
-                  <div>Completion: <strong style={{ color: '#ffffff' }}>{selectedCert.completionDate}</strong></div>
-                  <div>Issuer: <strong style={{ color: '#ffffff' }}>Prayxis Foundation</strong></div>
-                  <div>Grade: <strong style={{ color: '#25D366' }}>{selectedCert.grade}</strong></div>
-                </div>
-                <div style={{ marginTop: '8px', paddingTop: '8px', borderTop: '1px dashed rgba(255,255,255,0.1)', fontFamily: 'monospace', fontSize: '10px', color: '#94a3b8' }}>
-                  {selectedCert.hash}
-                </div>
-              </div>
-            </div>
-
-            <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', marginTop: '16px' }}>
-              <button
-                type="button"
-                className="btn btn-sm btn-outline-gold"
-                onClick={() => window.print()}
-              >
-                🖨️ Print / Save
-              </button>
-              <button
-                type="button"
-                className="btn btn-sm btn-primary"
-                onClick={() => {
-                  showToast('Credential link copied for LinkedIn & Resume!');
-                }}
-              >
-                Share Certificate
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Toast Notification */}
       {toastMessage && (

@@ -13,7 +13,6 @@ const FOOTER_NAV = [
   { label: 'RESOURCES HUB', href: '/resources' },
   { label: 'REGISTER', href: '/register' },
   { label: 'LOGIN', href: '/login' },
-  { label: 'VERIFY CERTIFICATE', href: '/#verify' },
 ];
 
 const SOCIAL_LINKS = [
